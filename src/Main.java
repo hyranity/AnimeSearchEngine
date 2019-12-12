@@ -6,8 +6,9 @@ public class Main {
     static Util.List<Anime> animeList = new Util.List();
     
     public static void main(String[] args){
-        String[] choices = {"One", "Two", "Three"};
-        System.out.println("You have chosen " + Display.showMenuChoice("Main menu", choices));
+        Main main = new Main();
+        main.setData();
+        System.out.println(main.animeList);
         
     }
     

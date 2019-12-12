@@ -50,7 +50,8 @@ public class List<E> implements ListInterface<E> {
     public void validateSize() {
 
         // If current/new size is more than actual array length
-        if (size > records.length) {
+        // Note: it is -1 because index starts at 0
+        if (size > records.length-1) {
             // Extend
             E[] oldArray = records;
             records = copyArray(oldArray, (E[]) new Object[records.length + 5]);
@@ -88,17 +89,19 @@ public class List<E> implements ListInterface<E> {
     }
 
     public String toString() {
-
+        String str = "================================";
+        
         if (size != 0) {
-            String str = "";
+            
             int index = 0;
 
             for (int i = 0; i < size; i++) {
-                str += "\n" + i + ". " + records[i].toString();
+                str += "\n" + (i+1) + ". " + records[i].toString();
                 index++;
             }
-
-            return str;
+            
+            
+            return str + "\n================================";
         } else {
             return "No record available";
         }
