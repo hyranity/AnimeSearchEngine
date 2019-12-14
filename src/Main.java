@@ -8,14 +8,31 @@ public class Main {
     public static void main(String[] args){
         Main main = new Main();
         main.setData();
-        System.out.println(main.animeList);
-        
+        main.searchByGenres("romance");
+        //System.out.println(animeList.getRecord(0).getGenres());
+       // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
     }
     
     // Sets data
     public void setData(){
         createAnime();
     }
+    
+   public void searchByGenres(String search){
+       List<Anime> results = new List();
+       
+       // Go through each one
+       for(int i=0;i<animeList.size;i++){
+           
+           Anime anime = animeList.getRecord(i);
+           
+           // Adds the anime to the results if found
+           if(anime.getGenres().isExists(search))
+               results.add(anime);
+       }
+       
+       System.out.println(results);
+   }
     
     public void createAnime(){
         // Get voice actors
@@ -26,6 +43,7 @@ public class Main {
        karakai.addCast(new Model.Character("Takagi", vaList.getRecord(0)));
        
        karakai.addCast(new Model.Character("Nishikata", vaList.getRecord(1)));
+       karakai.getGenres().add("romance");
        animeList.add(karakai);
        
        //Anime: anohana

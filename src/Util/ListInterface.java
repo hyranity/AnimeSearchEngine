@@ -13,6 +13,7 @@
 package Util;
 
 public interface ListInterface<E> {
+    
 
     E getRecord(int index);
     /*
@@ -20,6 +21,14 @@ public interface ListInterface<E> {
     precondition: Item must exist in the list
     postcondition: none
     return: E
+    */
+    
+    boolean isExists(E e);
+     /*
+    description: Searches for an element to see if it exists. If so, return true. Else, return false.
+    precondition: none
+    postcondition: none
+    return: boolean (true if element exists; false if not)
     */
 
     void add(E e);

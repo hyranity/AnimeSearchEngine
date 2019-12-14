@@ -106,6 +106,21 @@ public class List<E> implements ListInterface<E> {
             return "No record available";
         }
     }
+    
+   public boolean isExists(E e){
+       boolean exists = false;
+       int counter = 0;
+       // Loops through each element
+        while(records[counter] != null){
+            if(records[counter].equals(e))
+                exists = true;
+            
+            counter++;
+        }
+        
+       
+        return exists;
+    }
 
     public int indexOf(E e) {
        //Search
