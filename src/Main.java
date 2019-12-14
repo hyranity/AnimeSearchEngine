@@ -59,13 +59,15 @@ public class Main {
             //Remove the first genre from original query
             search = search.substring(indexToBeCut+2, search.length());
             
-            // If results not empty, clear it
+            // Hold temporary results
+
+            List<Anime> tempList = results;
             results = new List();
 
             // Go through each one
             for (int i = 0; i < animeList.size; i++) {
 
-                Anime anime = animeList.getRecord(i);
+                Anime anime = tempList.getRecord(i);
 
                 // Adds the anime to the results if found
                 if (anime.getGenres().isExists(query)) {
