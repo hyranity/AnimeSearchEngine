@@ -127,5 +127,9 @@ public class List<E> implements ListInterface<E> {
        
        return 0;
     }
+    
+    public void clear(){
+        records = (E[]) new Object[10];
+    }
 
 }

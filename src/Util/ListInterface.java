@@ -82,5 +82,13 @@ public interface ListInterface<E> {
     return: a String
     */
     
+    void clear();
+     /*
+    description: Clears all elements
+    precondition: none
+    postcondition: none
+    return: none
+    */
+    
 
 }

@@ -5,6 +5,7 @@
  */
 package Util;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -52,6 +53,18 @@ public class Display {
         } while (error);
 
         return choice;
+    }
+    
+    // Simulate "Press Enter key to continue"
+    // Thanks to E235 @ https://stackoverflow.com/questions/19870467/how-do-i-get-press-any-key-to-continue-to-work-in-my-java-code/25095049
+    public static void enterKeyToContinue(){
+        System.out.println("Press Enter key to continue...");
+        try{
+            System.in.read();
+        }
+        catch(IOException ex){
+            
+        }
     }
 
     // Following classes are to simplify input code
