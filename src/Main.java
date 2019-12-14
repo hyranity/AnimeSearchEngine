@@ -51,7 +51,6 @@ public class Main {
          if (search.indexOf(',') == -1)
              searchByGenres(search);
          else{
-        if (search.length() > 0) {
             // Take the first genre out of the search query
             int indexToBeCut = search.indexOf(',');
             String query = search.substring(0, indexToBeCut);
@@ -77,7 +76,7 @@ public class Main {
                 // Perform recursion
                 searchByGenres(search, results);
             }
-        }
+        
          }
     }
 
