@@ -43,12 +43,18 @@ public class Main {
        karakai.addCast(new Model.Character("Takagi", vaList.getRecord(0)));
        
        karakai.addCast(new Model.Character("Nishikata", vaList.getRecord(1)));
-       karakai.getGenres().add("romance");
+       
+       karakai.getGenres().add("Romance");
+       karakai.getGenres().add("School");
        animeList.add(karakai);
        
        //Anime: anohana
        Anime anohana = new Anime("Anohana");
        anohana.addCast(new Model.Character("Meiko Honma", vaList.getRecord(0)));
+       
+       anohana.getGenres().add("Slice of Life");
+       anohana.getGenres().add("Drama");
+       anohana.getGenres().add("Supernatural");
        animeList.add(anohana);
        
        //Anime: Attack on Titan
@@ -56,6 +62,10 @@ public class Main {
        titan.addCast(new Model.Character("Eren Jaegar", vaList.getRecord(0)));
        
        titan.addCast(new Model.Character("Mikasa Ackerman", vaList.getRecord(1)));
+       
+       titan.getGenres().add("Action");
+       titan.getGenres().add("Shounen");
+       titan.getGenres().add("Fantasy");
        animeList.add(titan);
        
        //Anime: Bleach
@@ -63,6 +73,10 @@ public class Main {
        bleach.addCast(new Model.Character("Ichigo Kurosaki", vaList.getRecord(0)));
        
        bleach.addCast(new Model.Character("Rukia Kuchiki", vaList.getRecord(1)));
+       
+       bleach.getGenres().add("Action");
+       bleach.getGenres().add("Shounen");
+       bleach.getGenres().add("Supernatural"); 
        animeList.add(bleach);
        
        //Anime: Heroaca
@@ -70,11 +84,19 @@ public class Main {
        heroaca.addCast(new Model.Character("Izuku Midoriya", vaList.getRecord(0)));
        
        heroaca.addCast(new Model.Character("Katsuki Bakugo", vaList.getRecord(1)));
+       
+       heroaca.getGenres().add("Action");
+       heroaca.getGenres().add("School");
+       heroaca.getGenres().add("Shounen");
        animeList.add(heroaca);
        
        //Anime: codegeass
        Anime codegeass = new Anime("Code Geass");
        codegeass.addCast(new Model.Character("Lelouch Lamperouge", vaList.getRecord(0)));
+       
+       codegeass.getGenres().add("Action");
+       codegeass.getGenres().add("Military");
+       codegeass.getGenres().add("Sci-Fi");
        animeList.add(codegeass);
        
        //Anime: conan
@@ -82,12 +104,21 @@ public class Main {
        conan.addCast(new Model.Character("Conan Edogawa", vaList.getRecord(0)));
        
        conan.addCast(new Model.Character("Shinichi Kudo", vaList.getRecord(1)));
+       
+       conan.getGenres().add("Mystery");
+       conan.getGenres().add("Shounen");
+       conan.getGenres().add("Action");
        animeList.add(conan);
        
        //Anime: DB
        Anime db = new Anime("Dragon Ball");
        db.addCast(new Model.Character("Goku Son", vaList.getRecord(0)));
+       
        db.addCast(new Model.Character("Krillin", vaList.getRecord(1)));
+       
+       db.getGenres().add("Action");
+       db.getGenres().add("Shounen");
+       db.getGenres().add("Supernatural");
        animeList.add(db);
        
        //Anime: fairytail
@@ -95,12 +126,21 @@ public class Main {
        fairy.addCast(new Model.Character("Natsu Dragneel", vaList.getRecord(0)));
        
        fairy.addCast(new Model.Character("Lucy Heartfilia", vaList.getRecord(1)));
+       
+       fairy.getGenres().add("Action");
+       fairy.getGenres().add("Adventure");
+       fairy.getGenres().add("Magic");
        animeList.add(fairy);
        
        //Anime: FMAB
        Anime fmab = new Anime("Fullmetal Alchemist: Brotherhood");
        fmab.addCast(new Model.Character("Edward Elric", vaList.getRecord(0)));
+       
        fmab.addCast(new Model.Character("Alphonse Elric", vaList.getRecord(1)));
+       
+       fmab.getGenres().add("Action");
+       fmab.getGenres().add("Shounen");
+       fmab.getGenres().add("Military");
        animeList.add(fmab);
        
        //Anime: fate
@@ -108,6 +148,10 @@ public class Main {
        fate.addCast(new Model.Character("Saber", vaList.getRecord(0)));
        fate.addCast(new Model.Character("Shiro Emiya", vaList.getRecord(1)));
        fate.addCast(new Model.Character("Rin Toosaka", vaList.getRecord(2)));
+       
+       fate.getGenres().add("Supernatural");
+       fate.getGenres().add("Fantasy");
+       fate.getGenres().add("Magic");
        animeList.add(fate);
        
        //Anime: Gintama
@@ -115,29 +159,49 @@ public class Main {
        gintama.addCast(new Model.Character("Gintoki Sakata", vaList.getRecord(0)));
        gintama.addCast(new Model.Character("Shinpachi Shimura", vaList.getRecord(1)));
        gintama.addCast(new Model.Character("Kagura", vaList.getRecord(2)));
+       
+       gintama.getGenres().add("Comedy");
+       gintama.getGenres().add("Historical");
+       gintama.getGenres().add("Action");
        animeList.add(gintama);
        
        //Anime: Inuyasha
        Anime inu = new Anime("Inuyasha");
        inu.addCast(new Model.Character("Inuyasha", vaList.getRecord(0)));
        inu.addCast(new Model.Character("Kagome Higurashi", vaList.getRecord(1)));
+       
+       inu.getGenres().add("Adventure");
+       inu.getGenres().add("Supernatural");
+       inu.getGenres().add("Romance");
        animeList.add(inu);
        
        //Anime: KnY
        Anime kimetsu = new Anime("Kimetsu no Yaiba");
        kimetsu.addCast(new Model.Character("Tanjiro Kamado", vaList.getRecord(0)));
        kimetsu.addCast(new Model.Character("Nezuko Kamado", vaList.getRecord(1)));
+       
+       kimetsu.getGenres().add("Action");
+       kimetsu.getGenres().add("Historical");
+       kimetsu.getGenres().add("Shounen");
        animeList.add(kimetsu);
        
        //Anime: kiminonawa
        Anime na = new Anime("Kimi no Na wa");
        na.addCast(new Model.Character("Taki", vaList.getRecord(0)));
        na.addCast(new Model.Character("Mitsuha", vaList.getRecord(0)));
+       
+       na.getGenres().add("Supernatural");
+       na.getGenres().add("School");
+       na.getGenres().add("Romance");
        animeList.add(na);
        
        //Anime: Magic Kaito
        Anime kaito = new Anime("Magic Kaito 1412");
        kaito.addCast(new Model.Character("Kaito Kuroba", vaList.getRecord(0)));
+       
+       kaito.getGenres().add("Adventure");
+       kaito.getGenres().add("Comedy");
+       kaito.getGenres().add("Shounen");
 
        animeList.add(kaito);
        
@@ -145,11 +209,19 @@ public class Main {
        Anime haruhi = new Anime("Melancholy of Haruhi Suzumiya");
        haruhi.addCast(new Model.Character("Haruhi Suzumiya", vaList.getRecord(0)));
        haruhi.addCast(new Model.Character("Kyon", vaList.getRecord(1)));
+       
+       haruhi.getGenres().add("Comedy");
+       haruhi.getGenres().add("Slice of Life");
+       haruhi.getGenres().add("School");
        animeList.add(haruhi);
        
        //Anime: Nanatsu no Taizai
        Anime taizai = new Anime("Nanatsu no Taizai");
        taizai.addCast(new Model.Character("Meliodas", vaList.getRecord(0)));
+       
+       taizai.getGenres().add("Action");
+       taizai.getGenres().add("Adventure");
+       taizai.getGenres().add("Supernatural");
 
        animeList.add(taizai);
        
@@ -157,12 +229,21 @@ public class Main {
        Anime onep = new Anime("One Piece");
        onep.addCast(new Model.Character("Monkey D Luffy", vaList.getRecord(0)));
        onep.addCast(new Model.Character("Zoro Roronoa", vaList.getRecord(1)));
+       
+       onep.getGenres().add("Adventure");
+       onep.getGenres().add("Shounen");
+       onep.getGenres().add("Comedy");
+       
        animeList.add(onep);
        
        //Anime: SAO
        Anime sao = new Anime("Sword Art Online");
        sao.addCast(new Model.Character("Kazuto Kirigaya", vaList.getRecord(0)));
        sao.addCast(new Model.Character("Asuna Yuuki", vaList.getRecord(1)));
+       
+       sao.getGenres().add("Action");
+       sao.getGenres().add("Fantasy");
+       sao.getGenres().add("Romance");
 
        animeList.add(sao);
        
@@ -170,11 +251,19 @@ public class Main {
        Anime tenki = new Anime("Tenki no Ko");
        tenki.addCast(new Model.Character("Hodaka", vaList.getRecord(0)));
        tenki.addCast(new Model.Character("Hina", vaList.getRecord(1)));
+       
+       tenki.getGenres().add("Fantasy");
+       tenki.getGenres().add("Slice of Life");
+       tenki.getGenres().add("Romance");
        animeList.add(tenki);
        
        //Anime: Violet Evergarden
        Anime violet = new Anime("Violet Evergarden");
        violet.addCast(new Model.Character("Violet Evergarden", vaList.getRecord(0)));
+       
+       violet.getGenres().add("Fantasy");
+       violet.getGenres().add("Slice of Life");
+       violet.getGenres().add("Drama");
 
        animeList.add(violet);
        
@@ -182,6 +271,10 @@ public class Main {
        Anime kimiuso = new Anime("Your Lie on April");
        kimiuso.addCast(new Model.Character("Kousei Arima", vaList.getRecord(0)));
        kimiuso.addCast(new Model.Character("Kaori Miyazono", vaList.getRecord(1)));
+       
+       kimiuso.getGenres().add("Music");
+       kimiuso.getGenres().add("School");
+       kimiuso.getGenres().add("Romance");
        animeList.add(kimiuso);
 
     }
