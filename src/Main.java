@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.searchByGenres("Romance");
+        main.searchByGenres("Action, Supernatural");
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
     }
@@ -24,11 +24,12 @@ public class Main {
     public void searchByGenres(String search) {
         List<Anime> results = new List();
         
+        
         // If multiple found
         if (search.indexOf(',') != -1) {
-            searchByGenres(search, results);
+            results = searchByGenres(search, null);
+            
         } else {
-
             // Go through each one
             for (int i = 0; i < animeList.size; i++) {
 
@@ -39,17 +40,32 @@ public class Main {
                     results.add(anime);
                 }
             }
-
-            System.out.println(results);
         }
+        System.out.println(results);
     }
 
     // Utilizes recursion
-    public void searchByGenres(String search, List<Anime> results) {
-
+    public List<Anime> searchByGenres(String search, List<Anime> results) {
+        List<Anime> finalResults = new List();
+        
         // If one remaining, go back to original method
-         if (search.indexOf(',') == -1)
-             searchByGenres(search);
+         if (search.indexOf(',') == -1){
+             // Only one genre left
+              // Go through each one
+            for (int i = 0; i < results.size; i++) {
+
+                Anime anime = results.getRecord(i);
+                
+                // Adds the anime to the final results if found
+                if (anime.getGenres().isExists(search)) {
+                    finalResults.add(anime);
+                }
+                
+            }
+            
+            // End search
+                return finalResults;
+         }
          else{
             // Take the first genre out of the search query
             int indexToBeCut = search.indexOf(',');
@@ -59,23 +75,30 @@ public class Main {
             search = search.substring(indexToBeCut+2, search.length());
             
             // Hold temporary results
-
-            List<Anime> tempList = results;
+            List<Anime> tempList = new List();
+            
+            // If this is the first search, then search the whole list
+            if(results == null)
+                tempList = animeList;
+            else
+                tempList = results; // If not first search, set the search domain to the previous results
+            
+            // Reset the results list to hold new results only
             results = new List();
-
+            
             // Go through each one
             for (int i = 0; i < animeList.size; i++) {
 
                 Anime anime = tempList.getRecord(i);
-
+                
                 // Adds the anime to the results if found
                 if (anime.getGenres().isExists(query)) {
                     results.add(anime);
                 }
-                
-                // Perform recursion
-                searchByGenres(search, results);
             }
+                // Perform recursion
+               return searchByGenres(search, results);
+            
         
          }
     }
