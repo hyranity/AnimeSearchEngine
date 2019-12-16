@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.searchByGenres("Slice of Life");
+       
         main.sortedList();
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
@@ -22,7 +22,7 @@ public class Main {
         createAnime();
     }
 
-    // SEARCH BY GENRES
+    // FILTER ALGORITHM by JOHANN LEE JIA XUAN
     public void searchByGenres(String search) {
         List<Anime> results = new List();
         
@@ -46,7 +46,7 @@ public class Main {
         System.out.println(results);
     }
 
-    // Utilizes recursion
+    // FILTER ALGORITHM by JOHANN LEE JIA XUAN
     public List<Anime> searchByGenres(String search, List<Anime> results) {
         List<Anime> finalResults = new List();
         
@@ -410,10 +410,7 @@ public class Main {
         return vaList;
     }
 
-    // Johann's algorithm
-    public void searchFilter() {
-
-    }
+ 
     
     //Kelvin's algorithm
     public void sortedList(){
