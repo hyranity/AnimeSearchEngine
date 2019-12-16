@@ -36,5 +36,8 @@ public class Character {
         this.voiceActor = voiceActor;
     }
     
+    public String toString(){
+        return name;
+    }
     
 }

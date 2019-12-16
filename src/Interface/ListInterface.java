@@ -10,7 +10,7 @@
  * E = Element of the list
  */
 
-package Util;
+package Interface;
 
 public interface ListInterface<E> {
     

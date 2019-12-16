@@ -1,4 +1,5 @@
-
+import Interface.SortedListInterface;
+import Interface.*;
 import Model.*;
 import Util.*;
 import java.util.Calendar;
@@ -10,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.searchByGenres("Action, Supernatural");
+        main.searchByGenres("Slice of Life");
+        main.sortedList();
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
     }
@@ -411,6 +413,21 @@ public class Main {
     // Johann's algorithm
     public void searchFilter() {
 
+    }
+    
+    //Kelvin's algorithm
+    public void sortedList(){
+        
+        SortedListInterface<Anime> l1 = new SortedList<Anime>();
+        for (int i = 0; i < animeList.size; i++) {
+            l1.add(animeList.getRecord(i));
+        
+        }
+        System.out.println("Total Anime: " + l1.getLength());
+        System.out.println("\nAnime List(A-Z): ");
+        System.out.printf("%-50s%-50s%-50s\n", "Name ", "Cast", "Genres");
+        System.out.printf("%-50s%-50s%-50s\n", "------- ", "----------------- ", "----------");
+        System.out.println(l1);
     }
 
 }

@@ -3,7 +3,7 @@ package Model;
 import Util.Quick;
 import Util.List;
 
-public class Anime {
+public class Anime  implements Comparable<Anime> {
     private String name;
     private List<Character> cast;
     private List<String> genres;
@@ -38,6 +38,7 @@ public class Anime {
     public List<Character> getCast() {
         return cast;
     }
+    
 
     public void setCast(List<Character> cast) {
         this.cast = cast;
@@ -46,17 +47,31 @@ public class Anime {
     public List<String> getGenres() {
         return genres;
     }
+    
+   
+    
 
     public void setGenres(List<String> genres) {
         this.genres = genres;
     }
     
     public String toString(){
-        return name;
-    }
-    
-    
+        return String.format("%-50s", name) + String.format("%-50s", cast.toStringWithCommas())+String.format("%-50s", genres.toStringWithCommas());
 
+    }   
+
+ 
     
-    
+    public boolean equals(Object other) {
+    if (other instanceof Anime) {
+      Anime otherName = (Anime) other;
+      return (this.name.equals(otherName.name) && this.cast.equals(otherName.cast) && this.genres == otherName.genres);
+    }
+    return false;
+  }
+
+    @Override
+    public int compareTo(Anime t) {
+        return this.getName().compareTo(t.getName());
+    }
 }

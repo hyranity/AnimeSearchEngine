@@ -2,6 +2,9 @@ package Util;
 
 // The following is a custom implementation of the List class
 
+import Interface.ListInterface;
+
+
 /* Coding made possible thanks to the following references:
 * https://howtodoinjava.com/data-structure/list-implementation-example-in-java/
 * https://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java
@@ -107,6 +110,17 @@ public class List<E> implements ListInterface<E> {
         }
     }
     
+    public String toStringWithCommas(){
+        String str = "";
+        for (int i = 0; i < size; i++) {
+            str += getRecord(i);
+            if(getRecord(i+1)!= null)
+                str +=", ";
+        }
+        return str;
+    
+    }
+    
    public boolean isExists(E e){
        boolean exists = false;
        int counter = 0;
@@ -121,12 +135,14 @@ public class List<E> implements ListInterface<E> {
        
         return exists;
     }
+   
 
     public int indexOf(E e) {
        //Search
        
        return 0;
     }
+    
     
     public void clear(){
         records = (E[]) new Object[10];
