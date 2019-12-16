@@ -8,11 +8,12 @@ public class Main {
 
     static AnimeList animeList = new Util.AnimeList();
     static VoiceActorList vaList = new Util.VoiceActorList();
+    
 
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        System.out.println(animeList);
+        animeList.searchByVoiceActor(vaList);
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
     }
