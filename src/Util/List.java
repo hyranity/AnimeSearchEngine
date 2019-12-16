@@ -12,7 +12,7 @@ import Interface.ListInterface;
 public class List<E> implements ListInterface<E> {
 
     public int size; // Size of list
-    private E[] records;
+    protected E[] records;
 
     // Constructor
     public List() {
@@ -92,7 +92,7 @@ public class List<E> implements ListInterface<E> {
     }
 
     public String toString() {
-        String str = "================================";
+        String str = "";
         
         if (size != 0) {
             
@@ -104,7 +104,7 @@ public class List<E> implements ListInterface<E> {
             }
             
             
-            return str + "\n================================";
+            return str += "\n\n" + size + " record(s) found.";
         } else {
             return "No record available";
         }
@@ -146,6 +146,16 @@ public class List<E> implements ListInterface<E> {
     
     public void clear(){
         records = (E[]) new Object[10];
+    }
+
+    @Override
+    public E find(E e) {
+        for (int i = 0; i < size; i++) {
+            if(e.equals(records[i]))
+                return e;
+        }
+        
+        return null;
     }
 
 }

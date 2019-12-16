@@ -6,13 +6,13 @@ import java.util.Calendar;
 
 public class Main {
 
-    static Util.List<Anime> animeList = new Util.List();
+    static AnimeList animeList = new Util.AnimeList();
+    static VoiceActorList vaList = new Util.VoiceActorList();
 
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-       
-        main.sortedList();
+        System.out.println(animeList);
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
     }
@@ -22,93 +22,9 @@ public class Main {
         createAnime();
     }
 
-    // FILTER ALGORITHM by JOHANN LEE JIA XUAN
-    public void searchByGenres(String search) {
-        List<Anime> results = new List();
-        
-        
-        // If multiple found
-        if (search.indexOf(',') != -1) {
-            results = searchByGenres(search, null);
-            
-        } else {
-            // Go through each one
-            for (int i = 0; i < animeList.size; i++) {
-
-                Anime anime = animeList.getRecord(i);
-
-                // Adds the anime to the results if found
-                if (anime.getGenres().isExists(search)) {
-                    results.add(anime);
-                }
-            }
-        }
-        System.out.println(results);
-    }
-
-    // FILTER ALGORITHM by JOHANN LEE JIA XUAN
-    public List<Anime> searchByGenres(String search, List<Anime> results) {
-        List<Anime> finalResults = new List();
-        
-        // If one remaining, go back to original method
-         if (search.indexOf(',') == -1){
-             // Only one genre left
-              // Go through each one
-            for (int i = 0; i < results.size; i++) {
-
-                Anime anime = results.getRecord(i);
-                
-                // Adds the anime to the final results if found
-                if (anime.getGenres().isExists(search)) {
-                    finalResults.add(anime);
-                }
-                
-            }
-            
-            // End search
-                return finalResults;
-         }
-         else{
-            // Take the first genre out of the search query
-            int indexToBeCut = search.indexOf(',');
-            String query = search.substring(0, indexToBeCut);
-            
-            //Remove the first genre from original query
-            search = search.substring(indexToBeCut+2, search.length());
-            
-            // Hold temporary results
-            List<Anime> tempList = new List();
-            
-            // If this is the first search, then search the whole list
-            if(results == null)
-                tempList = animeList;
-            else
-                tempList = results; // If not first search, set the search domain to the previous results
-            
-            // Reset the results list to hold new results only
-            results = new List();
-            
-            // Go through each one
-            for (int i = 0; i < animeList.size; i++) {
-
-                Anime anime = tempList.getRecord(i);
-                
-                // Adds the anime to the results if found
-                if (anime.getGenres().isExists(query)) {
-                    results.add(anime);
-                }
-            }
-                // Perform recursion
-               return searchByGenres(search, results);
-            
-        
-         }
-    }
-
     public void createAnime() {
-        // Get voice actors
-        List<VoiceActor> vaList = createVoiceActors();
 
+        createVoiceActors();
         // Anime : Karakai
         Anime karakai = new Anime("Karakai Jouzu no Takagi-san");
         karakai.addCast(new Model.Character("Takagi", vaList.getRecord(0)));
@@ -309,7 +225,7 @@ public class Main {
 
         //Anime: SAO
         Anime sao = new Anime("Sword Art Online");
-        sao.addCast(new Model.Character("Kazuto Kirigaya", vaList.getRecord(0)));
+        sao.addCast(new Model.Character("Kazuto Kirigaya", vaList.getRecord(28)));
         sao.addCast(new Model.Character("Asuna Yuuki", vaList.getRecord(1)));
 
         sao.getGenres().add("Action");
@@ -351,9 +267,8 @@ public class Main {
     }
 
     // Create all voice actors here
-    public List<VoiceActor> createVoiceActors() {
+    public void createVoiceActors() {
 
-        List<VoiceActor> vaList = new List();
         Quick quick = new Quick();
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Rie Takahashi", Quick.getDate(27, 2, 1994)));
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Yuki Kaji", Quick.getDate(3, 9, 1985)));
@@ -407,7 +322,6 @@ public class Main {
 
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Risa Taneda", Quick.getDate(12, 7, 1988)));
 
-        return vaList;
     }
 
  

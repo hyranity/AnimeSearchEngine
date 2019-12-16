@@ -5,12 +5,13 @@
  */
 package Model;
 import Util.Quick;
+import java.text.SimpleDateFormat;
 import java.util.*;
 /**
  *
  * @author mast3
  */
-public class VoiceActor {
+public class VoiceActor{
     private String actorId;
     private String name;
     private Calendar dateOfBirth;
@@ -49,7 +50,24 @@ public class VoiceActor {
         
     }
     
-   
-    
+    public String toString(){
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        return name + " | " + format.format(dateOfBirth.getTime());
+    }
+
+    @Override
+    public boolean equals(Object o){
+        VoiceActor toCompare = new VoiceActor();
+        //Cast object to voice actor
+        if(o instanceof VoiceActor)
+            toCompare = (VoiceActor) o;
+        else
+            return false; // Is not the correct object
+        
+        if(this.getActorId() == toCompare.actorId)
+            return true;
+        else
+            return false;
+    }
     
 }

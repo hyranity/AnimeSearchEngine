@@ -90,5 +90,12 @@ public interface ListInterface<E> {
     return: none
     */
     
+   E find(E e);
+    /*
+    description: Finds if an element exists in the list and returns it if it exists; It returns null if not
+    precondition: none
+    postcondition: none
+    return: E (if exists); null (if doesn't exist)
+    */
 
 }
