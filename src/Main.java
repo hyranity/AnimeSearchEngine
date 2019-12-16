@@ -214,6 +214,7 @@ public class Main {
         //Anime: Nanatsu no Taizai
         Anime taizai = new Anime("Nanatsu no Taizai");
         taizai.addCast(new Model.Character("Meliodas", vaList.getRecord(1)));
+        taizai.addCast(new Model.Character("Escanor", vaList.getRecord(20)));
 
         taizai.getGenres().add("Action");
         taizai.getGenres().add("Adventure");
