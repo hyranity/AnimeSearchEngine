@@ -1,4 +1,3 @@
-import Interface.SortedListInterface;
 import Interface.*;
 import Model.*;
 import Util.*;
@@ -13,9 +12,17 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        animeList.searchByVoiceActor(vaList);
+        //animeList.searchByVoiceActor(vaList);
+        
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
+        
+        // testing DupeChecker
+        DupeChecker dc = new DupeChecker();
+        System.out.println(dc.hasDupes(animeList));
+        System.out.println(dc.listDupes(animeList));
+        animeList = (AnimeList) dc.removeDupes(animeList);
+        System.out.println(dc.hasDupes(animeList));
     }
 
     // Sets data
