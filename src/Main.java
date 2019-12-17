@@ -17,7 +17,7 @@ public class Main {
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
         
-        // testing DupeChecker
+        // testing DupeChecker (Ryan)
         DupeChecker dc = new DupeChecker();
         System.out.println(dc.hasDupes(animeList));
         System.out.println(dc.listDupes(animeList));
