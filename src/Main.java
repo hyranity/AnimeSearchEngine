@@ -61,7 +61,8 @@ public class Main {
          Display.enterKeyToContinue();
          showMainMenu();
      }
-//Kelvin's algorithm
+     
+    //Kelvin's algorithm
     public static void sortedList(){
         
         SortedListInterface<Anime> l1 = new SortedList<Anime>();
