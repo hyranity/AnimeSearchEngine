@@ -47,7 +47,7 @@ public class Display {
             clear();
 
             // Checks for whether user selects an option outside of the number of choices
-            if (choice < 1 || choice > choices.length + 1) {
+            if (choice < 1 || choice > choices.length) {
                 error = true;
             } else {
                 error = false;

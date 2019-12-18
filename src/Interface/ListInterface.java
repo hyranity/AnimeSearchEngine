@@ -14,6 +14,13 @@ package Interface;
 
 public interface ListInterface<E> {
     
+    E search(E e);
+    /*
+    description: Searches the list for an element and returns the element
+    precondition: none
+    postcondition: none
+    return: E (null if not found)
+    */
 
     E getRecord(int index);
     /*

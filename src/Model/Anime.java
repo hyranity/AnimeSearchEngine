@@ -3,7 +3,8 @@ package Model;
 import Util.Quick;
 import Util.List;
 
-public class Anime  implements Comparable<Anime> {
+public class Anime implements Comparable<Anime> {
+
     private String name;
     private List<Character> cast;
     private List<String> genres;
@@ -14,15 +15,15 @@ public class Anime  implements Comparable<Anime> {
         this.cast = cast;
         this.genres = genres;
     }
-    
-    public Anime(String name){
+
+    public Anime(String name) {
         cast = new List();
         genres = new List();
         this.name = name;
     }
-    
+
     // Add a cast member
-    public void addCast(Character character){
+    public void addCast(Character character) {
         cast.add(character);
     }
 
@@ -38,7 +39,6 @@ public class Anime  implements Comparable<Anime> {
     public List<Character> getCast() {
         return cast;
     }
-    
 
     public void setCast(List<Character> cast) {
         this.cast = cast;
@@ -47,29 +47,23 @@ public class Anime  implements Comparable<Anime> {
     public List<String> getGenres() {
         return genres;
     }
-    
-   
-    
 
     public void setGenres(List<String> genres) {
         this.genres = genres;
     }
-    
-    public String toString(){
-        return String.format("%-50s", name) + String.format("%-50s", cast.toStringWithCommas())+String.format("%-50s", genres.toStringWithCommas());
 
-    }   
-    
+    public String toString() {
+        return String.format("%-50s", name) + String.format("%-50s", cast.toStringWithCommas()) + String.format("%-50s", genres.toStringWithCommas());
 
- 
-    
-    public boolean equals(Object other) {
-    if (other instanceof Anime) {
-      Anime otherName = (Anime) other;
-      return (this.name.equals(otherName.name) && this.cast.equals(otherName.cast) && this.genres == otherName.genres);
     }
-    return false;
-  }
+
+    public boolean equals(Object other) {
+        if (other instanceof Anime) {
+            Anime otherName = (Anime) other;
+            return (this.name.equals(otherName.name));
+        }
+        return false;
+    }
 
     @Override
     public int compareTo(Anime t) {

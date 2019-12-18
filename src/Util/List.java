@@ -104,7 +104,7 @@ public class List<E> implements ListInterface<E> {
             }
             
             
-            return str += "\n\n" + size + " record(s) found.";
+            return str;
         } else {
             return "No record available";
         }
@@ -153,6 +153,16 @@ public class List<E> implements ListInterface<E> {
         for (int i = 0; i < size; i++) {
             if(e.equals(records[i]))
                 return e;
+        }
+        
+        return null;
+    }
+    
+    public E search(E e){
+        for (int i = 0; i < size; i++) {
+            if(getRecord(i).equals(e))
+                return getRecord(i);
+                
         }
         
         return null;

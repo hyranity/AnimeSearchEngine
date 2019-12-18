@@ -132,30 +132,13 @@ public class AnimeList extends List<Anime> {
         return results;
     }
 
-    public AnimeList searchByName(String name) {
-        AnimeList results = new AnimeList();
-
-        // Find the anime with this name
-        for (int i = 0; i < this.size; i++) {
-            if (this.getRecord(i).getName().contains(name)) {
-                results.add(this.getRecord(i));
-            }
-        }
-        
-        return results;
-    }
-
-    public AnimeList search(String name, String voiceActor, String genres, VoiceActorList vaList) {
+    public AnimeList filter(String voiceActor, String genres, VoiceActorList vaList) {
         boolean hasResults = false;
 
         // Get all
         AnimeList results = this;
 
         // Keep filtering
-        if (name != null) {
-            results = results.searchByName(name);
-            hasResults = true;
-        }
         if (voiceActor != null) {
             System.out.println("VA is not null");
             results = results.searchByVoiceActor(voiceActor, vaList);

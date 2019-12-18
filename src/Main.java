@@ -39,25 +39,68 @@ public class Main {
         // Add options here
         switch(choice){
             case 1:
-                showSearch();
+                searchAndFilterMenu();
                 break;
             default:
                 break;
         }
     }
-     
      // JOHANN'S SEARCH ALGORITHM NAVIGATION
-     public static void showSearch(){
-         System.out.println("SEARCH ITEM (Leave blank to skip each filter)");
-         String name = Quick.toTitleCase(Display.promptString("Name").trim());
-         String genres =Quick.toTitleCase(Display.promptString("Genres to search (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
-         String voiceActor = Quick.toTitleCase(Display.promptString("Voice Actor to search").trim());
+     public static void searchAndFilterMenu(){
+         Display.clear();
+         String[] options = {"Search anime","Filter anime", "Back"};
+         
+         // Show the menu
+        int choice = Display.showMenuChoice("SEARCH AND FILTER", options);
+        
+        // Add options here
+        switch (choice) {
+            case 1:
+                showSearch();
+                break;
+            case 2:
+                showFilter();
+                break;
+            default:
+                showMainMenu();
+                break;
+        }
+    }
+
+    public static void showSearch() {
+        System.out.println("SEARCH ANIME");
+        String name = Display.promptString("Name (Caps sensitive)").trim();
+
+        Display.clear();
+
+        Anime result = animeList.search(new Anime(name));
+        if (result != null) {
+            System.out.println("Name: " + result.getName());
+            System.out.println("\nGenres: " + result.getGenres());
+            System.out.println("\nCharacters: ");
+            for (int i = 0; i < result.getCast().size; i++) {
+                System.out.println(result.getCast().getRecord(i).getName() + " (Voice Actor: " + result.getCast().getRecord(i).getVoiceActor().getName() + ") ");
+            }
+        } else {
+            System.out.println("No results found!");
+        }
+        System.out.println("\n\n");
+        Display.enterKeyToContinue();
+        searchAndFilterMenu();
+    }
+
+
+     public static void showFilter(){
+         System.out.println("FILTER ANIME (Leave blank to skip each filter)");
+         
+         String genres =Quick.toTitleCase(Display.promptString("Genres to filter (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
+         String voiceActor = Quick.toTitleCase(Display.promptString("Voice Actor to filter").trim());
 
          Display.clear();
-         System.out.println(animeList.search(name, voiceActor, genres, vaList));
+         System.out.println(animeList.filter(voiceActor, genres, vaList));
          
          Display.enterKeyToContinue();
-         showMainMenu();
+         searchAndFilterMenu();
      }
 
     // Sets data
