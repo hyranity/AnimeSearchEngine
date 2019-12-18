@@ -167,7 +167,8 @@ public class AnimeList extends List<Anime> {
         }
 
         if (!hasResults) {
-            return null;
+            // return all records
+            return this;
         } else {
             return results;
         }
