@@ -53,6 +53,7 @@ public class Main {
          String genres =Quick.toTitleCase(Display.promptString("Genres to search (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
          String voiceActor = Quick.toTitleCase(Display.promptString("Voice Actor to search").trim());
 
+         Display.clear();
          System.out.println(animeList.search(name, voiceActor, genres, vaList));
          
          Display.enterKeyToContinue();
