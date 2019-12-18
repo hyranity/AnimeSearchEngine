@@ -93,7 +93,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
   public String toString() {
     String outputStr = "";
     for (int index = 0; index < length; ++index) {
-      outputStr += list[index] + "\n";
+      outputStr += (index+1) + ". " + list[index] + "\n";
     }
 
     return outputStr;

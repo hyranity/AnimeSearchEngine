@@ -31,9 +31,9 @@ public class Main {
          Display.clear();
          
         // Create the options
-       String[] options = {"Search anime", "Close"};
+       String[] options = {"Search anime", "Test sort", "Close"};
         
-       // Show the menu
+       // Show the menu2
         int choice = Display.showMenuChoice("Main Menu", options);
         
         // Add options here
@@ -41,6 +41,8 @@ public class Main {
             case 1:
                 searchAndFilterMenu();
                 break;
+            case 2:
+                sortedList();
             default:
                 break;
         }
@@ -102,7 +104,25 @@ public class Main {
          Display.enterKeyToContinue();
          searchAndFilterMenu();
      }
-
+     
+    //Kelvin's algorithm
+    public static void sortedList(){
+        
+        SortedListInterface<Anime> l1 = new SortedList<Anime>();
+        for (int i = 0; i < animeList.size; i++) {
+            l1.add(animeList.getRecord(i));
+        
+        }
+        System.out.println("Total Anime: " + l1.getLength());
+        System.out.println("\nAnime List(A-Z): ");
+        System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
+        System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
+        System.out.println(l1);
+        
+        Display.enterKeyToContinue();
+        showMainMenu();
+    }
+    
     // Sets data
     public void setData() {
         createAnime();
@@ -428,23 +448,6 @@ public class Main {
 
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Risa Taneda", Quick.getDate(12, 7, 1988)));
 
-    }
-
- 
-    
-    //Kelvin's algorithm
-    public void sortedList(){
-        
-        SortedListInterface<Anime> l1 = new SortedList<Anime>();
-        for (int i = 0; i < animeList.size; i++) {
-            l1.add(animeList.getRecord(i));
-        
-        }
-        System.out.println("Total Anime: " + l1.getLength());
-        System.out.println("\nAnime List(A-Z): ");
-        System.out.printf("%-50s%-50s%-50s\n", "Name ", "Cast", "Genres");
-        System.out.printf("%-50s%-50s%-50s\n", "------- ", "----------------- ", "----------");
-        System.out.println(l1);
     }
 
 }
