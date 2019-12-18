@@ -12,18 +12,61 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
+        main.showMainMenu();
         //animeList.searchByVoiceActor(vaList);
         
         //System.out.println(animeList.getRecord(0).getGenres());
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
         
-        // testing DupeChecker (Ryan)
+        /* testing DupeChecker (Ryan)
         DupeChecker dc = new DupeChecker();
         System.out.println(dc.hasDupes(animeList));
         System.out.println(dc.listDupes(animeList));
         animeList = (AnimeList) dc.removeDupes(animeList);
-        System.out.println(dc.hasDupes(animeList));
+        System.out.println(dc.hasDupes(animeList)); */
     }
+    
+   // Main navigation
+     public static void showMainMenu(){
+         Display.clear();
+         
+        // Create the options
+       String[] options = {"Search anime", "Close"};
+        
+       // Show the menu
+        int choice = Display.showMenuChoice("Main Menu", options);
+        
+        // Add options here
+        switch(choice){
+            case 1:
+                showSearch();
+                break;
+            default:
+                break;
+        }
+    }
+     
+     // JOHANN'S SEARCH ALGORITHM NAVIGATION
+     public static void showSearch(){
+         System.out.println("SEARCH ITEM (Leave blank to skip each filter)");
+         String name = Display.promptString("Name").trim();
+         String genres =Display.promptString("Genres to search (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim();
+         String voiceActor = Display.promptString("Voice Actor to search").trim();
+         
+         if(name.isEmpty())
+             name = null;
+         
+         if(genres.isEmpty())
+             genres = null;
+         
+         if(voiceActor.isEmpty())
+             voiceActor = null;
+         
+         System.out.println(animeList.search(name, voiceActor, genres, vaList));
+         
+         Display.enterKeyToContinue();
+         showMainMenu();
+     }
 
     // Sets data
     public void setData() {

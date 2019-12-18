@@ -16,8 +16,8 @@ public class AnimeList extends List<Anime> {
     }
 
     // FILTER ALGORITHM by JOHANN LEE JIA XUAN (Filter by Single Genre)
-    public void searchByGenres(String search) {
-        List<Anime> results = new List();
+    public AnimeList searchByGenres(String search) {
+        AnimeList results = new AnimeList();
 
         // If multiple found
         if (search.indexOf(',') != -1) {
@@ -25,9 +25,9 @@ public class AnimeList extends List<Anime> {
 
         } else {
             // Go through each one
-            for (int i = 0; i < super.size; i++) {
+            for (int i = 0; i < this.size; i++) {
 
-                Anime anime = super.getRecord(i);
+                Anime anime = this.getRecord(i);
 
                 // Adds the anime to the results if found
                 if (anime.getGenres().isExists(search)) {
@@ -35,12 +35,12 @@ public class AnimeList extends List<Anime> {
                 }
             }
         }
-        System.out.println(results);
+        return results;
     }
 
     // FILTER ALGORITHM by JOHANN LEE JIA XUAN (Filter by Multiple Genres)
-    public List<Anime> searchByGenres(String search, AnimeList results) {
-        List<Anime> finalResults = new List();
+    public AnimeList searchByGenres(String search, AnimeList results) {
+        AnimeList finalResults = new AnimeList();
 
         // If one remaining, go back to original method
         if (search.indexOf(',') == -1) {
@@ -79,7 +79,7 @@ public class AnimeList extends List<Anime> {
             results = new AnimeList();
 
             // Go through each one
-            for (int i = 0; i < super.size; i++) {
+            for (int i = 0; i < this.size; i++) {
 
                 Anime anime = tempList.getRecord(i);
 
@@ -93,9 +93,19 @@ public class AnimeList extends List<Anime> {
         }
     }
 
-    // Filter by Voice Actor
-    private boolean searchByVoiceActor(VoiceActor va) {
-        
+    // Filter by Voice Actor name (accessed from outside)
+    public AnimeList searchByVoiceActor(String name, VoiceActorList vaList) {
+        VoiceActorList vaResults = new VoiceActorList();
+
+        // Get all voice actors that match the name
+        for (int i = 0; i < vaList.size; i++) {
+            VoiceActor va = vaList.getRecord(i);
+            
+            if (va.getName().contains(name)) {
+                vaResults.add(va);
+            }
+        }
+
         AnimeList results = new AnimeList();
 
         // Loop each anime
@@ -106,43 +116,64 @@ public class AnimeList extends List<Anime> {
             // Loop each cast
             castLoop:
             for (int j = 0; j < anime.getCast().size; j++) {
-                // If match, break the loop and move on to next anime
-                if (va.equals(anime.getCast().getRecord(j).getVoiceActor())) {
-                    results.add(anime);
-                    break castLoop;
+                for (int k = 0; k < vaResults.size; k++) {
+                    // Search if any of the voice actors (that previously resulted from the voice actor search) are in the anime
+                    VoiceActor va = vaResults.getRecord(k);
+                    
+                    // If match to any voice actor, break the loop and move on to next anime
+                    if (va.equals(anime.getCast().getRecord(j).getVoiceActor())) {
+                        results.add(anime);
+                        break castLoop;
+                    }
                 }
             }
         }
         
-        System.out.println(results);
-
-        if(results.size==0)
-            return false;
-        else
-            return true;
+        return results;
     }
-    
-    // Filter by Voice Actor (accessed from outside)
-     public boolean searchByVoiceActor(VoiceActorList vaList){
-        //Search all voice actors with this name
-        String[] voiceActorList = new String[vaList.size];
-        
-        // Fill in the choices with all voice actors
-        for (int i = 0; i < vaList.size; i++) {
-            voiceActorList[i] = vaList.getRecord(i).toString();
+
+    public AnimeList searchByName(String name) {
+        AnimeList results = new AnimeList();
+
+        // Find the anime with this name
+        for (int i = 0; i < this.size; i++) {
+            if (this.getRecord(i).getName().contains(name)) {
+                results.add(this.getRecord(i));
+            }
         }
         
-        
-        
-        int choice = Display.showMenuChoice("Select voice actor", voiceActorList);
-        
-        if(!searchByVoiceActor(vaList.getRecord(choice-1)))
-            return false;
-        else
-            return true;
+        return results;
     }
-     
-     public String toString(){
-         return String.format("%-50s%-50s%-50s\n", "Name ", "Cast", "Genres") + String.format("%-50s%-50s%-50s\n", "------- ", "----------------- ", "----------") + super.toString();
-     }
+
+    public AnimeList search(String name, String voiceActor, String genres, VoiceActorList vaList) {
+        boolean hasResults = false;
+
+        // Get all
+        AnimeList results = this;
+
+        // Keep filtering
+        if (name != null) {
+            results = results.searchByName(name);
+            hasResults = true;
+        }
+        if (voiceActor != null) {
+            System.out.println("VA is not null");
+            results = results.searchByVoiceActor(voiceActor, vaList);
+            hasResults = true;
+        }
+        if (genres != null) {
+            results = results.searchByGenres(genres);
+            hasResults = true;
+        }
+
+        if (!hasResults) {
+            return null;
+        } else {
+            return results;
+        }
+    }
+
+    public String toString() {
+        return String.format("%-50s%-50s%-50s\n", "Name ", "Cast", "Genres") + String.format("%-50s%-50s%-50s\n", "------- ", "----------------- ", "----------") + super.toString();
+    }
 }

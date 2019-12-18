@@ -14,6 +14,9 @@ import java.util.Scanner;
  * @author Johann Lee Jia Xuan This class is used to display menus
  */
 public class Display {
+    
+    
+     
 
     // Display simple menu with built-in exception detection
     public static int showMenuChoice(String title, String[] choices) {
