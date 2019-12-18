@@ -49,19 +49,10 @@ public class Main {
      // JOHANN'S SEARCH ALGORITHM NAVIGATION
      public static void showSearch(){
          System.out.println("SEARCH ITEM (Leave blank to skip each filter)");
-         String name = Display.promptString("Name").trim();
-         String genres =Display.promptString("Genres to search (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim();
-         String voiceActor = Display.promptString("Voice Actor to search").trim();
-         
-         if(name.isEmpty())
-             name = null;
-         
-         if(genres.isEmpty())
-             genres = null;
-         
-         if(voiceActor.isEmpty())
-             voiceActor = null;
-         
+         String name = Quick.toTitleCase(Display.promptString("Name").trim());
+         String genres =Quick.toTitleCase(Display.promptString("Genres to search (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
+         String voiceActor = Quick.toTitleCase(Display.promptString("Voice Actor to search").trim());
+
          System.out.println(animeList.search(name, voiceActor, genres, vaList));
          
          Display.enterKeyToContinue();
