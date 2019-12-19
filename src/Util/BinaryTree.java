@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 package Util;
+import Model.*;
 
 public class BinaryTree<E extends Comparable<E>> {
     private Node<E> root;
     
     public static void main(String[] args){
-        BinaryTree<String> tree = new BinaryTree();
+        BinaryTree<Anime> tree = new BinaryTree();
+        tree.insert(new Anime("Shokugeki"));
+        tree.insert(new Anime("SAO"));
+        tree.insert(new Anime("YLIA"));
+        tree.insert(new Anime("Test"));
         tree.inorderTraversal(tree.root);
     }
     
@@ -42,11 +47,12 @@ public class BinaryTree<E extends Comparable<E>> {
             return root;
         }
         
+        // check if data is before root
         if(data.compareTo(root.getData()) < 0){
             root.setLeft(add(root.left, data));
         }
         else{
-            
+            // data is equal/after root
             root.setRight(add(root.right, data));
         }
         

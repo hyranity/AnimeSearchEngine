@@ -13,4 +13,5 @@ public interface BinaryTreeInterface<E> {
     E getRootData();
     boolean isEmpty();
     void clear();
+    void insert(E e);
 }
