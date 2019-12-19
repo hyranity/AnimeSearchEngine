@@ -31,14 +31,6 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     return true;
   }
 
-  public boolean remove(T anEntry) {
-    throw new UnsupportedOperationException();
-  }
-
-  public int getPosition(T anEntry) {
-    throw new UnsupportedOperationException();
-  }
-
   public T remove(int givenPosition) {
     T result = null;
 
@@ -58,11 +50,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
   }
 
   public T getEntry(int givenPosition) {
-    T result = null;
-
-    if ((givenPosition >= 1) && (givenPosition <= length)) {
-      result = list[givenPosition - 1];
-    }
+    T result = list[givenPosition];
 
     return result;
   }
@@ -131,6 +119,22 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
       list[index] = list[index + 1];
     }
   }
-
+  
+  public void swap(int firstIndex, int secondIndex){
+      // {1,2}
+      
+     T temp = this.getEntry(firstIndex);
+      
+     // {2.2}
+     this.set(list[secondIndex], firstIndex);
+     
+     // {2,1}
+     this.set(temp, secondIndex);
+  }
+  
+  public void set(T t, int index){
+      this.list[index] = t;
+  }
+  
 }
 

@@ -12,8 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        //main.showMainMenu();
-        System.out.println(animeList.getRecord(0).compareTo(animeList.getRecord(1)));
+        main.showMainMenu();
         
         //animeList.searchByVoiceActor(vaList);
         
@@ -21,7 +20,7 @@ public class Main {
         // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
         
         /* testing DupeChecker (Ryan)
-        DupeChecker dc = new DupeChecker();
+        DupeChecker dc = new DupeChecker();3
         System.out.println(dc.hasDupes(animeList));
         System.out.println(dc.listDupes(animeList));
         animeList = (AnimeList) dc.removeDupes(animeList);
@@ -33,7 +32,7 @@ public class Main {
          Display.clear();
          
         // Create the options
-       String[] options = {"Search anime", "Test sort", "Close"};
+       String[] options = {"Search anime", "Sort anime","Close"};
         
        // Show the menu2
         int choice = Display.showMenuChoice("Main Menu", options);
@@ -44,7 +43,8 @@ public class Main {
                 searchAndFilterMenu();
                 break;
             case 2:
-                sortedList();
+                showSortMenu();
+                break;
             default:
                 break;
         }
@@ -107,22 +107,69 @@ public class Main {
          searchAndFilterMenu();
      }
      
-    //Kelvin's algorithm
-    public static void sortedList(){
+     public static void showSortMenu(){
+         Display.clear();
+         String[] options = {"Sorted List", "Selection sort","Back"};
+
+         // Show the sort menu
+        int choice = Display.showMenuChoice("Main Menu", options);
         
+        // Add options here
+        switch(choice){
+            case 1:
+                sortedList();
+                break;
+            case 2:
+                selectionSort();
+                break;
+            case 3:
+                showMainMenu();
+                break;
+            default:
+                break;
+        }
+     }
+     
+    //KELVIN'S SORT LIST ALGORITHM
+    public static void sortedList(){
         SortedListInterface<Anime> l1 = new SortedList<Anime>();
         for (int i = 0; i < animeList.size; i++) {
             l1.add(animeList.getRecord(i));
-        
         }
         System.out.println("Total Anime: " + l1.getLength());
-        System.out.println("\nAnime List(A-Z): ");
+        System.out.println("\nAnime List by using List sort algorithm (A-Z): ");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
         System.out.println(l1);
         
         Display.enterKeyToContinue();
-        showMainMenu();
+        showSortMenu();
+    }
+    
+    //KELVIN'S SELECTION SORT ALGORITHM
+    public static void selectionSort(){
+        SortedList<Anime> arr = new SortedList();
+        for (int i = 0; i < animeList.size; i++) {
+            arr.add(animeList.getRecord(i));
+        }
+        for (int i = 0; i < arr.getLength()-1; i++) {
+            int smallestNumber = i;
+            
+            for (int j = i+1; j < arr.getLength(); j++) {
+                if(arr.getEntry(smallestNumber).compareTo(arr.getEntry(j))>0)
+                    smallestNumber = j;
+            }
+            
+           arr.swap(i, smallestNumber);
+        }
+        System.out.println("Total Anime: " + arr.getLength());
+        System.out.println("\nAnime List by using Selection sort algorithm (A-Z): ");
+        System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
+        System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
+        System.out.println(arr);
+        
+        Display.enterKeyToContinue();
+        showSortMenu();
     }
     
     // Sets data

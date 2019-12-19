@@ -4,10 +4,6 @@ public interface SortedListInterface<T extends Comparable<T>> {
 
   public boolean add(T newEntry);
 
-  public boolean remove(T anEntry);
-
-  public int getPosition(T anEntry);
-
   // The following methods are described in ListInterface.java
   // as part of the ADT list:
   public T getEntry(int givenPosition);
