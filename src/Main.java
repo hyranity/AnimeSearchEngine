@@ -32,7 +32,7 @@ public class Main {
          Display.clear();
          
         // Create the options
-       String[] options = {"Search anime", "Sort anime","Close"};
+       String[] options = {"Filter anime", "Sort anime","Close"};
         
        // Show the menu2
         int choice = Display.showMenuChoice("Main Menu", options);
@@ -40,7 +40,7 @@ public class Main {
         // Add options here
         switch(choice){
             case 1:
-                searchAndFilterMenu();
+                showFilter();
                 break;
             case 2:
                 showSortMenu();
@@ -49,54 +49,7 @@ public class Main {
                 break;
         }
     }
-     // JOHANN'S SEARCH ALGORITHM NAVIGATION
-     public static void searchAndFilterMenu(){
-         Display.clear();
-         String[] options = {"Search anime","Filter anime", "Back"};
-         
-         // Show the menu
-        int choice = Display.showMenuChoice("SEARCH AND FILTER", options);
-        
-        // Add options here
-        switch (choice) {
-            case 1:
-                showSearch();
-                break;
-            case 2:
-                showFilter();
-                break;
-            default:
-                showMainMenu();
-                break;
-        }
-    }
-
-    public static void showSearch() {
-        System.out.println("SEARCH ANIME");
-        String name = Display.promptString("Name (Caps sensitive)").trim();
-
-        Display.clear();
-        
-        // Start timer
-         Timer timer = new Timer();
-         
-        Anime result = animeList.search(new Anime(name));
-        String stoppedTimer = timer.stop();
-        if (result != null) {
-            System.out.println("Name: " + result.getName());
-            System.out.println("\nGenres: " + result.getGenres());
-            System.out.println("\nCharacters: ");
-            for (int i = 0; i < result.getCast().size; i++) {
-                System.out.println(result.getCast().getRecord(i).getName() + " (Voice Actor: " + result.getCast().getRecord(i).getVoiceActor().getName() + ") ");
-            }
-        } else {
-            System.out.println("No results found!");
-        }
-        System.out.println("\n\nTotal time to search: " + stoppedTimer);
-        System.out.println("\n\n");
-        Display.enterKeyToContinue();
-        searchAndFilterMenu();
-    }
+ 
 
 
      public static void showFilter(){
@@ -117,7 +70,7 @@ public class Main {
          System.out.println(results);
          System.out.println("\n\nTotal time to filter: " + timer.stop());
          Display.enterKeyToContinue();
-         searchAndFilterMenu();
+         showMainMenu();
      }
      
      public static void showSortMenu(){
@@ -511,5 +464,54 @@ public class Main {
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Risa Taneda", Quick.getDate(12, 7, 1988)));
 
     }
+    
+    // UNUSED METHODS BUT MIGHT BE USED LATER
+    /*
+    public static void showSearch() {
+        System.out.println("SEARCH ANIME");
+        String name = Display.promptString("Name (Caps sensitive)").trim();
 
+        Display.clear();
+        
+        // Start timer
+         Timer timer = new Timer();
+         
+        Anime result = animeList.search(new Anime(name));
+        String stoppedTimer = timer.stop();
+        if (result != null) {
+            System.out.println("Name: " + result.getName());
+            System.out.println("\nGenres: " + result.getGenres());
+            System.out.println("\nCharacters: ");
+            for (int i = 0; i < result.getCast().size; i++) {
+                System.out.println(result.getCast().getRecord(i).getName() + " (Voice Actor: " + result.getCast().getRecord(i).getVoiceActor().getName() + ") ");
+            }
+        } else {
+            System.out.println("No results found!");
+        }
+        System.out.println("\n\nTotal time to search: " + stoppedTimer);
+        System.out.println("\n\n");
+        Display.enterKeyToContinue();
+        searchAndFilterMenu();
+    }*/
+
+        /*public static void searchAndFilterMenu(){
+         Display.clear();
+         String[] options = {"Search anime","Filter anime", "Back"};
+         
+         // Show the menu
+        int choice = Display.showMenuChoice("SEARCH AND FILTER", options);
+        
+        // Add options here
+        switch (choice) {
+            case 1:
+                showSearch();
+                break;
+            case 2:
+           //     showFilter();
+                break;
+            default:
+                showMainMenu();
+                break;
+        }
+    }*/
 }
