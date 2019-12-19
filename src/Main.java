@@ -76,8 +76,12 @@ public class Main {
         String name = Display.promptString("Name (Caps sensitive)").trim();
 
         Display.clear();
-
+        
+        // Start timer
+         Timer timer = new Timer();
+         
         Anime result = animeList.search(new Anime(name));
+        String stoppedTimer = timer.stop();
         if (result != null) {
             System.out.println("Name: " + result.getName());
             System.out.println("\nGenres: " + result.getGenres());
@@ -88,6 +92,7 @@ public class Main {
         } else {
             System.out.println("No results found!");
         }
+        System.out.println("\n\nTotal time to search: " + stoppedTimer);
         System.out.println("\n\n");
         Display.enterKeyToContinue();
         searchAndFilterMenu();
@@ -103,7 +108,13 @@ public class Main {
          Display.clear();
          // Start timer
          Timer timer = new Timer();
-         System.out.println(animeList.filter(voiceActor, genres, vaList));
+         
+         // Perform algorithms
+         AnimeList results = animeList.filter(voiceActor, genres, vaList);
+         
+         String stoppedTimer = timer.stop();
+         
+         System.out.println(results);
          System.out.println("\n\nTotal time to filter: " + timer.stop());
          Display.enterKeyToContinue();
          searchAndFilterMenu();
