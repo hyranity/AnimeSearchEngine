@@ -12,7 +12,9 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.showMainMenu();
+        //main.showMainMenu();
+        System.out.println(animeList.getRecord(0).compareTo(animeList.getRecord(1)));
+        
         //animeList.searchByVoiceActor(vaList);
         
         //System.out.println(animeList.getRecord(0).getGenres());
