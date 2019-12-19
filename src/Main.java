@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.showMainMenu();
+       main.showMainMenu();
         
         //animeList.searchByVoiceActor(vaList);
         
@@ -98,11 +98,13 @@ public class Main {
          System.out.println("FILTER ANIME (Leave blank to skip each filter)");
          
          String genres =Quick.toTitleCase(Display.promptString("Genres to filter (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
-         String voiceActor = Quick.toTitleCase(Display.promptString("Voice Actor to filter").trim());
+         String voiceActor = Display.promptString("Voice Actor to filter (Caps sensitive)").trim();
 
          Display.clear();
+         // Start timer
+         Timer timer = new Timer();
          System.out.println(animeList.filter(voiceActor, genres, vaList));
-         
+         System.out.println("\n\nTotal time to filter: " + timer.stop());
          Display.enterKeyToContinue();
          searchAndFilterMenu();
      }
