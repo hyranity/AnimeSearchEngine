@@ -16,7 +16,7 @@ public class AnimeList extends List<Anime> {
     }
 
     // FILTER ALGORITHM by JOHANN LEE JIA XUAN 
-    public AnimeList searchByGenres(String search, AnimeList results) {
+    public AnimeList filterByGenres(String search, AnimeList results) {
         AnimeList finalResults = new AnimeList();
         String query = "";
 
@@ -63,11 +63,11 @@ public class AnimeList extends List<Anime> {
         }
 
         // Perform recursion
-        return searchByGenres(search, results);
+        return filterByGenres(search, results);
     }
 
     // Filter by Voice Actor name (accessed from outside)
-    public AnimeList searchByVoiceActor(String name, VoiceActorList vaList) {
+    public AnimeList filterByVoiceActor(String name, VoiceActorList vaList) {
         VoiceActorList vaResults = new VoiceActorList();
 
         // Get all voice actors that match the name
@@ -113,11 +113,11 @@ public class AnimeList extends List<Anime> {
 
         // Keep filtering
         if (voiceActor != null) {
-            results = results.searchByVoiceActor(voiceActor, vaList);
+            results = results.filterByVoiceActor(voiceActor, vaList);
             hasResults = true;
         }
         if (genres != null) {
-            results = results.searchByGenres(genres, null);
+            results = results.filterByGenres(genres, null);
             hasResults = true;
         }
 
