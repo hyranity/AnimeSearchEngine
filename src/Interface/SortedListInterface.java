@@ -8,28 +8,48 @@ public interface SortedListInterface<T extends Comparable<T>> {
     postcondition: newEntry the object to be added as a new entry
     return: true, if the addition is successful
   */
-  
-  // The following methods are described in ListInterface.java
-  // as part of the ADT list:
+
   public T getEntry(int givenPosition);
+  /*
+    description: retrieves the entry at position givenPosition in the list
+    precondition: newPosition must be between 1 to total entries
+    Returns: The entry at position givenPosition.
+  */
 
   public boolean contains(T anEntry);
+  /*
+    description: Determines whether the list contains anEntry
+    return: true if anEntry is in the list, or false of not
+  */
 
   public T remove(int givenPosition);
   /*
-    description: Gets the position of an entry in the sorted list
-    postcondition: anEntry the object to be found
-    return: the position of the first or only occurrence of anEntry if it
-    occurs in the list; otherwise returns the position where anEntry would
-    occur in the list, but as a negative integer
+    description: Removes a specified entry from the sorted list.
+    postcondition: anEntry the object to be removed
+    return: true, if anEntry was located and removed
   */
   
   public void clear();
-
+  /*
+    description: Clear all items
+  */
+  
   public int getLength();
-
+  /*
+    description: Get the number of entries currently in the list
+    return: the number of entries currently in the list
+  */
+  
   public boolean isEmpty();
+  /*
+    description: Check the list is empty or not
+    return: true, if is empty
+  */
 
   public boolean isFull();
+  /*
+    description: Check the list is full or not
+    return: true of the list is full, or false if not full
+  */
 } 
 

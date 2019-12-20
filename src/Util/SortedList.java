@@ -3,19 +3,23 @@ package Util;
 import Interface.SortedListInterface;
 public class SortedList<T extends Comparable<T>> implements SortedListInterface<T> {
 
-  private T[] list;
-  private int length;
+  private T[] list; 
+  private int length; //Length of list
   private static final int DEFAULT_INITIAL_CAPACITY = 25;
-
+  
+  //Constructor
   public SortedList() {
     this(DEFAULT_INITIAL_CAPACITY);
   }
 
+  //Parameterized Constructor
   public SortedList(int initialCapacity) {
+    //Default length is 0
     length = 0;
     list = (T[]) new Comparable[initialCapacity];
   }
-
+  
+  @Override
   public boolean add(T newEntry) {
     int i = 0;
     if(isArrayFull()){
@@ -31,6 +35,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     return true;
   }
 
+  @Override
   public T remove(int givenPosition) {
     T result = null;
 
@@ -44,17 +49,20 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     return result;
   }
-
+  
+  @Override
   public void clear() {
     length = 0;
   }
 
+  @Override
   public T getEntry(int givenPosition) {
     T result = list[givenPosition];
 
     return result;
   }
 
+  @Override
   public boolean contains(T anEntry) {
     boolean found = false;
     for (int index = 0; !found && (index < length); index++) {
@@ -66,18 +74,22 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     return found;
   }
 
+  @Override
   public int getLength() {
     return length;
   }
 
+  @Override
   public boolean isEmpty() {
     return length == 0;
   }
 
+  @Override
   public boolean isFull() {
     return false;
   }
 
+  @Override
   public String toString() {
     String outputStr = "";
     for (int index = 0; index < length; ++index) {
@@ -87,6 +99,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     return outputStr;
   }
 
+  //Extend the array
   private boolean isArrayFull() {
     return length == list.length;
   }
@@ -102,6 +115,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     }
   }
 
+  //Give new position when there a new entry
   private void makeRoom(int newPosition) {
     int newIndex = newPosition - 1;
     int lastIndex = length - 1;
@@ -120,6 +134,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     }
   }
   
+  //Swap index for selection sort
   public void swap(int firstIndex, int secondIndex){
       // The current position{1,2}
       // Get first Index : 1 
@@ -132,6 +147,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
      this.set(temp, secondIndex);
   }
   
+  //Save the data
   public void set(T t, int index){
       this.list[index] = t;
   }
