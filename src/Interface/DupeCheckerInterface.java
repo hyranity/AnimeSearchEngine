@@ -16,6 +16,10 @@ public interface DupeCheckerInterface<E> {
     postcondition: None.
     return: A boolean value: 'true' if the list contains duplicates; 'false' if the list doesn't contain duplicates.
     */
+    boolean hasDupesBinarySearch(List<E> list);
+    /*
+    to add.
+    */
     String listDupes(List<E> list);
     /*
     description: Returns a string that lists all occurrences of duplicates in a given list.
