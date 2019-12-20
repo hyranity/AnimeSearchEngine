@@ -7,8 +7,9 @@
 package Util;
 
 import Interface.*;
+import Model.*;
 
-public class DupeChecker<E> implements DupeCheckerInterface<E> {
+public class DupeChecker<E extends Comparable<E>> implements DupeCheckerInterface<E> {
 
     @Override
     public boolean hasDupes(List<E> list) {
@@ -26,6 +27,36 @@ public class DupeChecker<E> implements DupeCheckerInterface<E> {
             }
         }
         // If no matching items are found, then return false.
+        return false;
+    }
+    
+    @Override
+    public boolean hasDupesBinarySearch(List<E> list) {
+        
+        // Loop through every item in the list.
+        for (int i = 0; i < list.size; i++) {
+            if (binarySearch(list, 0, list.size - 1, i)) {
+                return true;
+            }
+        }
+        // If no matching items are found, then return false.
+        return false;
+    }
+    
+    public boolean binarySearch(List<E> list, int left, int right, int index) {
+        if (right >= left) {
+            int mid = left + (right - left) / 2;
+            
+            if (mid != index && list.getRecord(mid).compareTo(list.getRecord(index)) == 0) {
+                return true;
+            }
+            
+            if (list.getRecord(mid).compareTo(list.getRecord(index)) > 0) {
+                return binarySearch(list, left, mid - 1, index);
+            }
+            return binarySearch(list, mid + 1, right, index);
+        }
+        
         return false;
     }
 
