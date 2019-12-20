@@ -12,21 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-        main.showMainMenu();
-        
-        //animeList.searchByVoiceActor(vaList);
-        
-        // testing DupeChecker (Ryan)
-        /*DupeChecker dc = new DupeChecker();
-        AnimeList testList = new AnimeList();
-        testList.add(new Anime("Aaa"));
-        testList.add(new Anime("Bbb"));
-        testList.add(new Anime("Ccc"));
-        testList.add(new Anime("Ddd"));
-        System.out.println(dc.hasDupesBinarySearch(testList));
-        System.out.println(dc.listDupes(testList));
-        testList = (AnimeList) dc.removeDupes(testList);
-        System.out.println(dc.hasDupes(testList));*/
+      main.showMainMenu();
     }
     
    // Main navigation
