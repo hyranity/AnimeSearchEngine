@@ -12,33 +12,27 @@ public class Testing {
     
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.setData();
-        main.showSortMenu();
+        Testing test = new Testing();
+        test.setData();
+        
+        testFilter();
+    }
+    
+    public static void testFilter(){
+        System.out.println("TESTING: FILTER ALGORITHM\n");
+        
+        for (int i = 1; i <= 10; i++) {
+            Timer timer = new Timer();
+            
+            // Main testing
+            animeList.filter("a", "Romance, Action", vaList);
+            
+            String time = timer.stop();
+            System.out.println("Round " + i + " finished in " + time);
+        }
     }
      
-     public static void showSortMenu(){
-         Display.clear();
-         String[] options = {"Sorted List", "Selection sort","Back"};
-
-         // Show the sort menu
-        int choice = Display.showMenuChoice("Main Menu", options);
-        
-        // Add options here
-        switch(choice){
-            case 1:
-                sortedList();
-                break;
-            case 2:
-                selectionSort();
-                break;
-            case 3:
-                System.exit(1);
-                break;
-            default:
-                break;
-        }
-     }
+    
      
     //KELVIN'S SORT LIST ALGORITHM
     public static void sortedList(){
@@ -59,8 +53,6 @@ public class Testing {
         System.out.println("\n\nTotal time to sort: " + timer.stop());
         System.out.println();
         
-        Display.enterKeyToContinue();
-        showSortMenu();
     }
     
     //KELVIN'S SELECTION SORT ALGORITHM
@@ -90,7 +82,6 @@ public class Testing {
         System.out.println("\n\nTotal time to sort: " + timer.stop());
         
         Display.enterKeyToContinue();
-        showSortMenu();
     }
     
     // Sets data
