@@ -12,16 +12,21 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-       main.showMainMenu();
+        main.showMainMenu();
         
         //animeList.searchByVoiceActor(vaList);
         
-        /* testing DupeChecker (Ryan)
-        DupeChecker dc = new DupeChecker();3
-        System.out.println(dc.hasDupes(animeList));
-        System.out.println(dc.listDupes(animeList));
-        animeList = (AnimeList) dc.removeDupes(animeList);
-        System.out.println(dc.hasDupes(animeList)); */
+        // testing DupeChecker (Ryan)
+        /*DupeChecker dc = new DupeChecker();
+        AnimeList testList = new AnimeList();
+        testList.add(new Anime("Aaa"));
+        testList.add(new Anime("Bbb"));
+        testList.add(new Anime("Ccc"));
+        testList.add(new Anime("Ddd"));
+        System.out.println(dc.hasDupesBinarySearch(testList));
+        System.out.println(dc.listDupes(testList));
+        testList = (AnimeList) dc.removeDupes(testList);
+        System.out.println(dc.hasDupes(testList));*/
     }
     
    // Main navigation
@@ -29,7 +34,7 @@ public class Main {
          Display.clear();
          
         // Create the options
-       String[] options = {"Filter anime", "Sort anime","Close"};
+       String[] options = {"Filter anime", "Sort anime", "Check duplicates", "Close"};
         
        // Show the menu2
         int choice = Display.showMenuChoice("Main Menu", options);
@@ -41,6 +46,9 @@ public class Main {
                 break;
             case 2:
                 showSortMenu();
+                break;
+            case 3:
+                showDupeMenu();
                 break;
             default:
                 break;
@@ -92,6 +100,82 @@ public class Main {
                 break;
         }
      }
+     
+    public static void showDupeMenu() {
+        Display.clear();
+        String[] options = {"Check if the list has duplicates",
+            "Check if the list has duplicates using BINARY SEARCH (requires a SORTED LIST)",
+            "Display all duplicates in the list",
+            "Remove all duplicates in the list",
+            "Back"};
+        
+        int choice = Display.showMenuChoice("Main Menu", options);
+        
+        switch(choice){
+            case 1:
+                checkForDupes();
+                break;
+            case 2:
+                checkForDupesBinarySearch();
+                break;
+            case 3:
+                displayDupes();
+                break;
+            case 4:
+                removeDupes();
+                break;
+            default:
+                showMainMenu();
+                break;
+        }
+    }
+    
+    public static void checkForDupes() {
+        Timer timer = new Timer();
+        
+        DupeChecker<Anime> checker = new DupeChecker();
+        if (checker.hasDupes(animeList)) {
+            System.out.println("The list contains duplicates.");
+        } else {
+            System.out.println("The list does not contain duplicates.");
+        }
+        
+        System.out.println("\n\nTotal time to execute: " + timer.stop());
+        
+        Display.enterKeyToContinue();
+        showDupeMenu();
+    }
+    
+    public static void checkForDupesBinarySearch() {
+        System.out.println("This function requires another module to be fully-constructed/operational first! (List sorting.)");
+        
+        Display.enterKeyToContinue();
+        showDupeMenu();
+    }
+    
+    public static void displayDupes() {
+        Timer timer = new Timer();
+        
+        DupeChecker<Anime> checker = new DupeChecker();
+        System.out.println(checker.listDupes(animeList));
+        
+        System.out.println("\n\nTotal time to execute: " + timer.stop());
+        
+        Display.enterKeyToContinue();
+        showDupeMenu();
+    }
+    
+    public static void removeDupes() {
+        Timer timer = new Timer();
+        
+        DupeChecker<Anime> checker = new DupeChecker();
+        checker.removeDupes(animeList);
+        
+        System.out.println("\n\nTotal time to execute: " + timer.stop());
+        
+        Display.enterKeyToContinue();
+        showDupeMenu();
+    }
      
     //KELVIN'S SORT LIST ALGORITHM
     public static void sortedList(){
@@ -213,6 +297,7 @@ public class Main {
         codegeass.getGenres().add("Action");
         codegeass.getGenres().add("Military");
         codegeass.getGenres().add("Sci-Fi");
+        animeList.add(codegeass);
         animeList.add(codegeass);
 
         //Anime: conan
