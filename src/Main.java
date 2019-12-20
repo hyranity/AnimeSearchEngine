@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.setData();
-       //main.showMainMenu();
+       main.showMainMenu();
         
         //animeList.searchByVoiceActor(vaList);
         

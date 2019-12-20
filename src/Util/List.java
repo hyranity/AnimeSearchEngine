@@ -1,7 +1,6 @@
 package Util;
 
 // The following is a custom implementation of the List class
-
 import Interface.ListInterface;
 
 
@@ -36,6 +35,11 @@ public class List<E> implements ListInterface<E> {
 
     // Getter
     public E getRecord(int index) {
+        // If given index is out of bounds, do nothing.
+        if (index < 0 || index > size - 1) {
+            return null;
+        }
+
         return records[index];
     }
 
@@ -54,20 +58,19 @@ public class List<E> implements ListInterface<E> {
 
         // If current/new size is more than actual array length
         // Note: it is -1 because index starts at 0
-        if (size > records.length-1) {
+        if (size > records.length - 1) {
             // Extend
             E[] oldArray = records;
             records = Quick.extendArray(oldArray);
         }
     }
 
-    
-
     // Removes from list
     public void remove(int index) {
         // If given index is out of bounds, do nothing.
-        if(index<0 || index>size-1)
+        if (index < 0 || index > size - 1) {
             return;
+        }
 
         // remove the current index
         records[index] = null;
@@ -85,74 +88,75 @@ public class List<E> implements ListInterface<E> {
 
     public String toString() {
         String str = "";
-        
+
         if (size != 0) {
-            
+
             int index = 0;
 
             for (int i = 0; i < size; i++) {
-                str += "\n" + (i+1) + ". " + records[i].toString();
+                str += "\n" + (i + 1) + ". " + records[i].toString();
                 index++;
             }
-            
-            
+
             return str;
         } else {
             return "No record available";
         }
     }
-    
-    public String toStringWithCommas(){
+
+    public String toStringWithCommas() {
         String str = "";
         for (int i = 0; i < size; i++) {
             str += getRecord(i);
-            
+
             // If there's still more records, print comma
-            if(getRecord(i+1)!= null)
-                str +=", ";
+            if (getRecord(i + 1) != null) {
+                str += ", ";
+            }
         }
         return str;
-    
+
     }
-    
-   public boolean isExists(E e){
-       boolean exists = false;
-       int counter = 0;
-       // Loops through each item
-        while(records[counter] != null){
-            if(records[counter].equals(e))
+
+    public boolean isExists(E e) {
+        boolean exists = false;
+        int counter = 0;
+        // Loops through each item
+        while (records[counter] != null) {
+            if (records[counter].equals(e)) {
                 exists = true;
-            
+            }
+
             counter++;
         }
-        
-       
+
         return exists;
     }
-    
-    
-    public void clear(){
+
+    public void clear() {
         records = (E[]) new Object[10];
         size = 0;
     }
-    
-    public E search(E e){
+
+    public E search(E e) {
         for (int i = 0; i < size; i++) {
-            if(getRecord(i).equals(e))
+            if (getRecord(i).equals(e)) {
                 return getRecord(i);
-                
+            }
+
         }
-        
+
         return null;
     }
-    
-    public int indexOf(E e){
+
+    public int indexOf(E e) {
         for (int i = 0; i < size; i++) {
-            if(getRecord(i).equals(e))
+            if (getRecord(i).equals(e)) {
                 return i;
-                
+            }
+
         }
-        
+
         return -1;
     }
 
