@@ -86,7 +86,15 @@ public interface ListInterface<E> {
     description: Displays all elements in a string
     precondition: none
     postcondition: none
-    return: a String
+    return: String
+    */
+    
+    String toStringWithCommas();
+     /*
+    description: Displays all elements in a string, where each element is separated by another with a comma
+    precondition: none
+    postcondition: none
+    return: String
     */
     
     void clear();
