@@ -95,15 +95,22 @@ public class Main {
      
     //KELVIN'S SORT LIST ALGORITHM
     public static void sortedList(){
+        int n = 10;
+        // Start timer
+        Timer timer = new Timer();
         SortedListInterface<Anime> l1 = new SortedList<Anime>();
         for (int i = 0; i < animeList.size; i++) {
             l1.add(animeList.getRecord(i));
         }
+        // End timer
+        String stoppedTimer = timer.stop();
+        
         System.out.println("Total Anime: " + l1.getLength());
         System.out.println("\nAnime List by using List sort algorithm (A-Z): ");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
         System.out.println(l1);
+        System.out.println("\n\nTotal time to sort: " + timer.stop());
         
         Display.enterKeyToContinue();
         showSortMenu();
@@ -111,6 +118,8 @@ public class Main {
     
     //KELVIN'S SELECTION SORT ALGORITHM
     public static void selectionSort(){
+        // Start timer
+        Timer timer = new Timer();
         SortedList<Anime> arr = new SortedList();
         for (int i = 0; i < animeList.size; i++) {
             arr.add(animeList.getRecord(i));
@@ -122,14 +131,16 @@ public class Main {
                 if(arr.getEntry(smallestNumber).compareTo(arr.getEntry(j))>0)
                     smallestNumber = j;
             }
-            
            arr.swap(i, smallestNumber);
         }
+        // End timer
+        String stoppedTimer = timer.stop();
         System.out.println("Total Anime: " + arr.getLength());
         System.out.println("\nAnime List by using Selection sort algorithm (A-Z): ");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
         System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
         System.out.println(arr);
+        System.out.println("\n\nTotal time to sort: " + timer.stop());
         
         Display.enterKeyToContinue();
         showSortMenu();

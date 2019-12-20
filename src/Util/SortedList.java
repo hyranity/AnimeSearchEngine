@@ -121,14 +121,14 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
   }
   
   public void swap(int firstIndex, int secondIndex){
-      // {1,2}
-      
+      // The current position{1,2}
+      // Get first Index : 1 
      T temp = this.getEntry(firstIndex);
       
-     // {2.2}
+     // {2.2} Putt second index into first index
      this.set(list[secondIndex], firstIndex);
      
-     // {2,1}
+     // {2,1} Put Temp:1 which is first index then put to second index
      this.set(temp, secondIndex);
   }
   
