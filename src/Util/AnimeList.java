@@ -17,7 +17,6 @@ public class AnimeList extends List<Anime> {
 
     // FILTER ALGORITHM by JOHANN LEE JIA XUAN 
     public AnimeList filterByGenres(String search, AnimeList results) {
-        AnimeList finalResults = new AnimeList();
         String query = "";
 
         int indexToBeCut = search.indexOf(',');
@@ -32,25 +31,23 @@ public class AnimeList extends List<Anime> {
             //Remove the first genre from original query
             search = search.substring(indexToBeCut + 2, search.length());
         }
-        // Hold temporary results
-        AnimeList tempList = new AnimeList();
-        
-        int searchLoop  = 0;
+        // List that is to be filtered
+        AnimeList tobeFiltered = new AnimeList();
 
         // If this is the first search, then search the whole list
         if (results == null) {
-            tempList = this;
+            tobeFiltered = this;
             
         } else {
-            tempList = results; // If not first search, set the search domain to the previous results
+            tobeFiltered = results; // If not first search, set the search domain to the previous results
         }
         // Reset the results list to hold new results only
         results = new AnimeList();
         
         // Go through each one
-        for (int i = 0; i < tempList.size; i++) {
+        for (int i = 0; i < tobeFiltered.size; i++) {
 
-            Anime anime = tempList.getRecord(i);
+            Anime anime = tobeFiltered.getRecord(i);
             // Adds the anime to the results if found
             if (anime.getGenres().isExists(query)) {
                 results.add(anime);
