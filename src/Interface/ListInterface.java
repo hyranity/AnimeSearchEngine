@@ -3,7 +3,7 @@
  * 
  * DESCRIPTION
  * This is the interface for the custom List class, which allows the storing of objects on a list structure.
- * It contains all necessary functions, allowing user to add, remove, and retrieve elements of the list.
+ * It contains all necessary functions, allowing user to add, remove, and retrieve items of the list.
  * Certain methods such as validateSize() and copyArray() are used by the List class itself to ensure that all functions work as expected. 
  * Detailed explanation of each method will be listed below
  * 
@@ -16,7 +16,7 @@ public interface ListInterface<E> {
     
     E search(E e);
     /*
-    description: Searches the list for an element and returns the element
+    description: Searches the list for an item and returns the item
     precondition: none
     postcondition: none
     return: E (null if not found)
@@ -24,7 +24,7 @@ public interface ListInterface<E> {
 
     E getRecord(int index);
     /*
-    description: Returns an element based on the given index
+    description: Returns an item based on the given index
     precondition: Item must exist in the list
     postcondition: none
     return: E
@@ -32,15 +32,15 @@ public interface ListInterface<E> {
     
     boolean isExists(E e);
      /*
-    description: Searches for an element to see if it exists. If so, return true. Else, return false.
+    description: Searches for an item to see if it exists. If so, return true. Else, return false.
     precondition: none
     postcondition: none
-    return: boolean (true if element exists; false if not)
+    return: boolean (true if item exists; false if not)
     */
 
     void add(E e);
      /*
-    description: Adds an element
+    description: Adds an item
     precondition: none
     postcondition: List size is increased
     return: none
@@ -57,17 +57,10 @@ public interface ListInterface<E> {
     return: none
     */
     
-    public E[] copyArray(E[] oldArray, E[] newArray);
-     /*
-    description: Copies oldArray elements to newArray, and returns the newArray
-    precondition: none
-    postcondition: newArray now has same elements as oldArray
-    return: An array of E
-    */
     
     void remove(int index);
      /*
-    description: Removes an element
+    description: Removes an item
     precondition: list must not be empty, indexed item must exist
     postcondition: List size is decreased
     return: none
@@ -83,7 +76,7 @@ public interface ListInterface<E> {
     
     String toString();
      /*
-    description: Displays all elements in a string
+    description: Displays all items in a string
     precondition: none
     postcondition: none
     return: String
@@ -91,7 +84,7 @@ public interface ListInterface<E> {
     
     String toStringWithCommas();
      /*
-    description: Displays all elements in a string, where each element is separated by another with a comma
+    description: Displays all items in a string, where each item is separated by another with a comma
     precondition: none
     postcondition: none
     return: String
@@ -99,18 +92,10 @@ public interface ListInterface<E> {
     
     void clear();
      /*
-    description: Clears all elements
+    description: Clears all items
     precondition: none
     postcondition: none
     return: none
-    */
-    
-   E find(E e);
-    /*
-    description: Finds if an element exists in the list and returns it if it exists; It returns null if not
-    precondition: none
-    postcondition: none
-    return: E (if exists); null (if doesn't exist)
     */
 
 }

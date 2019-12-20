@@ -57,25 +57,17 @@ public class List<E> implements ListInterface<E> {
         if (size > records.length-1) {
             // Extend
             E[] oldArray = records;
-            records = copyArray(oldArray, (E[]) new Object[records.length + 5]);
+            records = Quick.extendArray(oldArray);
         }
     }
 
-    // Allows copy of arrays
-    public E[] copyArray(E[] oldArray, E[] newArray) {
-        int count = 0;
-
-        for (E obj : oldArray) {
-            // Copy current element into the new array
-            newArray[count] = obj;
-            count++;
-        }
-
-        return newArray;
-    }
+    
 
     // Removes from list
     public void remove(int index) {
+        // If given index is out of bounds, do nothing.
+        if(index<0 || index>size-1)
+            return;
 
         // remove the current index
         records[index] = null;
@@ -114,6 +106,8 @@ public class List<E> implements ListInterface<E> {
         String str = "";
         for (int i = 0; i < size; i++) {
             str += getRecord(i);
+            
+            // If there's still more records, print comma
             if(getRecord(i+1)!= null)
                 str +=", ";
         }
@@ -124,7 +118,7 @@ public class List<E> implements ListInterface<E> {
    public boolean isExists(E e){
        boolean exists = false;
        int counter = 0;
-       // Loops through each element
+       // Loops through each item
         while(records[counter] != null){
             if(records[counter].equals(e))
                 exists = true;
@@ -139,16 +133,6 @@ public class List<E> implements ListInterface<E> {
     
     public void clear(){
         records = (E[]) new Object[10];
-    }
-
-    @Override
-    public E find(E e) {
-        for (int i = 0; i < size; i++) {
-            if(e.equals(records[i]))
-                return e;
-        }
-        
-        return null;
     }
     
     public E search(E e){

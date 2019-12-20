@@ -16,9 +16,6 @@ public class Main {
         
         //animeList.searchByVoiceActor(vaList);
         
-        //System.out.println(animeList.getRecord(0).getGenres());
-        // System.out.println(animeList.getRecord(0).getGenres().isExists("romance"));
-        
         /* testing DupeChecker (Ryan)
         DupeChecker dc = new DupeChecker();3
         System.out.println(dc.hasDupes(animeList));

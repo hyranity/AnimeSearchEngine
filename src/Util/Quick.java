@@ -114,5 +114,22 @@ public class Quick {
 
         return result;
     }
+    
+    //Copies oldArray items to newArray, and returns the newArray
+    // Allows copy of arrays
+    public static <E> E[] extendArray(E[] oldArray) {
+        int count = 0;
+        
+        E[] newArray = (E[]) new Object[oldArray.length + 5];
+
+        for (E obj : oldArray) {
+            // Copy current item into the new array
+            newArray[count] = obj;
+            count++;
+        }
+
+        return newArray;
+    }
+    
 
 }
