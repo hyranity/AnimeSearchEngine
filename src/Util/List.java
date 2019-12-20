@@ -135,13 +135,6 @@ public class List<E> implements ListInterface<E> {
        
         return exists;
     }
-   
-
-    public int indexOf(E e) {
-       //Search
-       
-       return 0;
-    }
     
     
     public void clear(){
