@@ -61,7 +61,7 @@ public interface ListInterface<E> {
     void remove(int index);
      /*
     description: Removes an item
-    precondition: list must not be empty, indexed item must exist
+    precondition: none
     postcondition: List size is decreased
     return: none
     */
@@ -79,7 +79,7 @@ public interface ListInterface<E> {
     description: Displays all items in a string
     precondition: none
     postcondition: none
-    return: String
+    return: String containing all the items in a "list" format.
     */
     
     String toStringWithCommas();

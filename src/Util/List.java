@@ -133,6 +133,7 @@ public class List<E> implements ListInterface<E> {
     
     public void clear(){
         records = (E[]) new Object[10];
+        size = 0;
     }
     
     public E search(E e){
