@@ -15,8 +15,9 @@ public class Quick {
     }
 
     // Generates ID based on how many records there are now and with what prefix it should have and how long the ID should be in characters (eg. customer would be C00000001)
-
+    // If it tries to generate an ID, and the new ID precedes the specified ID length, null is returned
     public String generateListId(String prefix, int idLength) {
+        
         counter++;
 
         String id = "" + counter;
@@ -24,6 +25,14 @@ public class Quick {
 
         for (int i = 0; i < numberOfZeroes; i++) {
             id = "0" + id;
+        }
+        
+        String newId = prefix+id;
+        
+        // If the new ID is longer than intended length, return null
+        if(newId.length()>idLength){
+            counter--;
+            return null;
         }
 
         return prefix + id;
