@@ -46,7 +46,7 @@ public class Main {
      public static void showFilter(){
          System.out.println("FILTER ANIME (Leave blank to skip each filter)");
          
-         String genres =Quick.toTitleCase(Display.promptString("Genres to filter (Capitalize first letter) \"EXAMPLE: Romance, Action\"").trim());
+         String genres =Quick.toTitleCase(Display.promptString("Genres to filter \"EXAMPLE: Romance, Action\"").trim());
          String voiceActor = Display.promptString("Voice Actor to filter (Caps sensitive)").trim();
 
          Display.clear();
