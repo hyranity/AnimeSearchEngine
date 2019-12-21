@@ -14,12 +14,7 @@ public class Quick {
         counter = 0;
     }
 
-    /*
-    description: Generates ID based on how many records there are now and with what prefix it should have and how long the ID should be in characters (eg. customer would be C00000001)
-    precondition: none
-    postcondition: none
-    return: String
-     */
+    // Generates ID based on how many records there are now and with what prefix it should have and how long the ID should be in characters (eg. customer would be C00000001)
 
     public String generateListId(String prefix, int idLength) {
         counter++;
