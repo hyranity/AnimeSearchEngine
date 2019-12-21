@@ -19,4 +19,8 @@ public class Timer {
        double res = (double)  (endTime-startTime)/1000000;
         return String.format("%.4f milliseconds", res);
     }
+    
+    public double getElapsedTimeInMillis(){
+        return (double)  (endTime-startTime)/1000000;
+    }
 }

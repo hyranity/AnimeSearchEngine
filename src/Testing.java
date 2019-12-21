@@ -20,16 +20,26 @@ public class Testing {
     
     public static void testFilter(){
         System.out.println("TESTING: FILTER ALGORITHM\n");
+        double[] times = new double[10];
         
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i < 10; i++) {
             Timer timer = new Timer();
             
             // Main testing
             animeList.filter("a", "Romance, Action", vaList);
             
             String time = timer.stop();
-            System.out.println("Round " + i + " finished in " + time);
+            times[i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i+1) + " finished in " + time);
         }
+        
+        // calculate average
+        double sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += times[i];
+        }
+        
+        System.out.println("Average execution time: " + sum/10 + " milliseconds.");
     }
      
     
