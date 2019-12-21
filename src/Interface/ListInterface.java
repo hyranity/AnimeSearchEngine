@@ -58,12 +58,6 @@ public interface ListInterface<E> {
     return: String containing all the items in a "list" format.
     */
     
-    String toStringWithCommas();
-     /*
-    description: Displays all items in a string, where each item is separated by another with a comma
-    return: String containing all the items, each item separated by a comma.
-    */
-    
     void clear();
      /*
     description: Clears all items
