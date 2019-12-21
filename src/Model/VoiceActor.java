@@ -52,7 +52,7 @@ public class VoiceActor{
     
     public String toString(){
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        return name + " | " + format.format(dateOfBirth.getTime());
+        return name;
     }
 
     @Override

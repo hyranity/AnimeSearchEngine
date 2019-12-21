@@ -53,7 +53,11 @@ public class Anime implements Comparable<Anime> {
     }
 
     public String toString() {
-        return String.format("%-50s", name) + String.format("%-50s", cast.toStringWithCommas()) + String.format("%-50s", genres.toStringWithCommas());
+        List<VoiceActor> actors = new List();
+        for (int i = 0; i < cast.size; i++) {
+            actors.add(cast.getRecord(i).getVoiceActor());
+        }
+        return String.format("%-50s", name) + String.format("%-50s", actors.toStringWithCommas()) + String.format("%-50s", genres.toStringWithCommas());
 
     }
 
