@@ -9,13 +9,37 @@ import Model.*;
 public class BinaryTree<E extends Comparable<E>> {
     private Node<E> root;
     
-    public static void main(String[] args){
-        BinaryTree<Anime> tree = new BinaryTree();
-        tree.insert(new Anime("Shokugeki"));
-        tree.insert(new Anime("SAO"));
-        tree.insert(new Anime("YLIA"));
-        tree.insert(new Anime("Test"));
-        tree.inorderTraversal(tree.root);
+    public boolean search(E e){
+        if(binaryTreeSearch(e, null) != null)
+            return true;
+        else
+            return false;
+    }
+    
+    public E binaryTreeSearch(E e, Node current){
+        Node<E> node = new Node(e);
+        // set the current as root
+        if(current == null)
+            current = root;
+
+        // if correct, return
+        if(node.compareTo(current) == 0){
+            return (E) current.getData();
+        }
+        
+        // else, check should go left or not
+        if(node.compareTo(current) < 0 && current.getLeft() != null){
+            return binaryTreeSearch(node.getData(), current.getLeft());
+            
+        }
+        
+        // else, check should go right or not 
+        else if (node.compareTo(current)>0 && current.getRight() != null)
+            return binaryTreeSearch(node.getData(), current.getRight());
+        
+        // else, no where to go; item is not found
+        else
+            return null;
     }
     
     public BinaryTree(){
