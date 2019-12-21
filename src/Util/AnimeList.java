@@ -64,8 +64,8 @@ public class AnimeList extends List<Anime> {
     }
 
     // Filter by Voice Actor name (accessed from outside)
-    public AnimeList filterByVoiceActor(String name, VoiceActorList vaList) {
-        VoiceActorList vaResults = new VoiceActorList();
+    public AnimeList filterByVoiceActor(String name, List<VoiceActor> vaList) {
+        List<VoiceActor> vaResults = new List();
 
         // Get all voice actors that match the name
         for (int i = 0; i < vaList.size; i++) {
@@ -102,7 +102,7 @@ public class AnimeList extends List<Anime> {
         return results;
     }
 
-    public AnimeList filter(String voiceActor, String genres, VoiceActorList vaList) {
+    public AnimeList filter(String voiceActor, String genres, List<VoiceActor> vaList) {
         boolean hasResults = false;
 
         // Get all

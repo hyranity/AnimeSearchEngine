@@ -8,7 +8,7 @@ import java.util.Calendar;
 public class Testing {
 
     static AnimeList animeList = new Util.AnimeList();
-    static VoiceActorList vaList = new Util.VoiceActorList();
+    static List<VoiceActor> vaList = new Util.List();
     
 
     public static void main(String[] args) {
