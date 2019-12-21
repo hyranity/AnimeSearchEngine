@@ -39,14 +39,6 @@ public interface ListInterface<E> {
     postcondition: List size is increased
     */
     
-    void validateSize();
-     /*
-    description: Ensures that the list has enough space. It will increase the actual size 
-    if the current size (just a size pointer, not the actual size) exceeds the actual size.
-    This is used when adding an item.
-    postcondition: List actual size will be increased if not enough space.
-    */
-    
     
     void remove(int index);
      /*
