@@ -8,14 +8,14 @@ package Util;
 import Model.Anime;
 import Model.VoiceActor;
 
-// This is a List of Anime
+// This is a List of Anime that contains the FILTERING ALGORITHM by JOHANN LEE JIA XUAN
 public class AnimeList extends List<Anime> {
 
     public AnimeList() {
 
     }
 
-    // FILTER ALGORITHM by JOHANN LEE JIA XUAN 
+   // Filters by Genres
     public AnimeList filterByGenres(String search, AnimeList results) {
         String query = "";
 
@@ -63,7 +63,7 @@ public class AnimeList extends List<Anime> {
         return filterByGenres(search, results);
     }
 
-    // Filter by Voice Actor name (accessed from outside)
+    // Filters by Voice Actor
     public AnimeList filterByVoiceActor(String name, List<VoiceActor> vaList) {
         List<VoiceActor> vaResults = new List();
 
