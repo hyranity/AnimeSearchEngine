@@ -15,7 +15,19 @@ public class VoiceActor{
     private String actorId;
     private String name;
     private Calendar dateOfBirth;
+    
+    // Constructor
+    public VoiceActor(String actorId, String name, Calendar dateOfBirth) {
+        this.actorId = actorId;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+    
+    public VoiceActor(){
+        
+    }
 
+    // Setters & getters
     public String getName() {
         return name;
     }
@@ -38,16 +50,6 @@ public class VoiceActor{
 
     public void setActorId(String actorId) {
         this.actorId = actorId;
-    }
-
-    public VoiceActor(String actorId, String name, Calendar dateOfBirth) {
-        this.actorId = actorId;
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-    }
-    
-    public VoiceActor(){
-        
     }
     
     public String toString(){
