@@ -2,7 +2,7 @@ package Model;
 
 import Util.Quick;
 import Util.List;
-
+//Author: Johann Lee Jia Xuan
 public class Anime implements Comparable<Anime> {
 
     private String name;

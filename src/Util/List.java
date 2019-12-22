@@ -3,7 +3,7 @@ package Util;
 // The following is a custom implementation of the List class
 import Interface.ListInterface;
 
-
+//Author: Johann Lee Jia Xuan
 /* Coding made possible thanks to the following references:
 * https://howtodoinjava.com/data-structure/list-implementation-example-in-java/
 * https://stackoverflow.com/questions/529085/how-to-create-a-generic-array-in-java

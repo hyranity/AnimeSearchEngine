@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 /**
  *
- * @author mast3
+ * Author: Johann Lee Jia Xuan
  */
 public class VoiceActor{
     private String actorId;

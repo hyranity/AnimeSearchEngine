@@ -1,4 +1,4 @@
-/**
+/** Utility class by Johann Lee Jia Xuan
  * The purpose of this class is to shorten code in a customized fashion.
  * The functions are already possible in the current version of Java; however, we just want to shorten the code to allow for faster typing.
  * */

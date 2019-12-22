@@ -2,7 +2,7 @@ package Interface;
 
 import Util.BinaryTree;
 import Util.BinaryTree.Node;
-
+//Author: Jane
 public interface BinaryTreeInterface<E extends Comparable<E>> {
     
     boolean search (E e);

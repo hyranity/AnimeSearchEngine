@@ -1,5 +1,5 @@
 package Util;
-
+//Author: Kelvin Ng Tiong Kiat
 import Interface.SortedListInterface;
 public class SortedList<T extends Comparable<T>> implements SortedListInterface<T> {
 

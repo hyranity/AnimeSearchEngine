@@ -1,5 +1,5 @@
 /**
- * ListInterface ADT
+ * ListInterface ADT by Johann Lee Jia Xuan
  * 
  * DESCRIPTION
  * This is the interface for the custom List class, which allows the storing of objects on a list structure.

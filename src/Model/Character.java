@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author mast3
+ * Author: Johann Lee Jia Xuan
  */
 public class Character {
     private String name;

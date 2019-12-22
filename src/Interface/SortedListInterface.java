@@ -1,5 +1,5 @@
 package Interface;
-
+//Author: Kelvin Ng Tiong Kiat
 public interface SortedListInterface<T extends Comparable<T>> {
 
   public boolean add(T newEntry);
