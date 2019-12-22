@@ -21,7 +21,7 @@ public class Main {
          Display.clear();
          
         // Create the options
-       String[] options = {"Filter anime", "Sort anime", "Check duplicates", "Search anime", "Close"};
+       String[] options = {"Filter anime", "Sort anime", "Check duplicates", "Search anime via Binary Tree", "Close"};
         
        // Show the menu2
         int choice = Display.showMenuChoice("Main Menu", options);
@@ -44,35 +44,29 @@ public class Main {
                 break;
         }
     }
+     
+     // Binary tree search
      public static void searchAnime(){
+         // Read all animeList data to binaryTree
+         BinaryTree<Anime> tree = new BinaryTree();
+         for (int i = 0; i < animeList.size; i++) {
+             tree.insert(animeList.getRecord(i));
+         }
+         
          //String animeInput;
          //Scanner sc = new Scanner(System.in);
          System.out.println("Type an anime title to begin searching.");
          String animeTitle = Quick.toTitleCase(Display.promptString("Enter anime title"));
          
-         //String input = sc.nextLine();
-         String input = binaryTreeSearch(animeTitle, current);
-         /*
-         animeInput=sc.nextLine();
-         BinaryTree sendAnimeInput = new BinaryTree();
-         BinaryTree.Node current = null;
+         boolean found = tree.search(new Anime(animeTitle));
          
-         sendAnimeInput.binaryTreeSearch(animeInput, current);
-         sc.close();
-         */
+         if(found)
+             System.out.println("FOUND"); // CUSTOMIZE MESSAGE
+         else
+             System.out.println("NOT FOUND"); // CUSTOMIZE MESSAGE
          
-         BinaryTree<Anime> data = new BinaryTree();
-         
-         for(int i=0; i<animeList.size; i++){
-             data.search(animeList.getRecord(i));
-             if(input.animeTitle == animeList.getRecord(i)){
-                 System.out.println("Anime "+ animeTitle + " found!");
-                 
-             } else {
-                 System.out.println("Anime "+ animeTitle +" not found.");
-             
-         }
-         
+         Display.enterKeyToContinue();
+         showMainMenu();
      }
      
      
