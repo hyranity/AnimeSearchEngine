@@ -285,6 +285,7 @@ public class Main {
         karakai.getGenres().add("Romance");
         karakai.getGenres().add("School");
         animeList.add(karakai);
+        animeList.add(karakai);
 
         //Anime: anohana
         Anime anohana = new Anime("Anohana");
