@@ -29,14 +29,12 @@ public class BinaryTree<E extends Comparable<E>> {
         
         // else, check should go left or not
         if(node.compareTo(current) < 0 && current.getLeft() != null){
-            System.out.print("Right since " + animeTitle); System.out.println(" < " + current.getData());
             return binaryTreeSearch(node.getData(), current.getLeft());
             
         }
         
         // else, check should go right or not 
         else if (node.compareTo(current)>0 && current.getRight() != null){
-            System.out.print("Right since " + animeTitle); System.out.println(" > " + current.getData());
             return binaryTreeSearch(node.getData(), current.getRight());
         }
         
