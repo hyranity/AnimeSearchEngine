@@ -108,7 +108,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     T[] oldList = list;
     int oldSize = oldList.length;
 
-    list = (T[]) new Object[2 * oldSize];
+    list = (T[]) new Comparable[2 * oldSize];
 
     for (int index = 0; index < oldSize; index++) {
       list[index] = oldList[index];
