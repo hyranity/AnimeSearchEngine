@@ -16,6 +16,7 @@ public class Testing {
         test.setData();
         
         testFilter();
+        testDupeChecker();
     }
     
     public static void testFilter(){
@@ -40,6 +41,65 @@ public class Testing {
         }
         
         System.out.println("Average execution time: " + sum/10 + " milliseconds.");
+    }
+    
+    public static void testDupeChecker() {
+        System.out.println("TESTING: DUPLICATE CHECKER ALGORITHM\n");
+        double[][] times = new double[4][10];
+        
+        // Testing function 1: hasDupes()
+        for (int i = 0; i < 10; i++) {
+            Timer timer = new Timer();
+            DupeChecker checker = new DupeChecker();
+            checker.hasDupes(animeList);
+            String time = timer.stop();
+            times[0][i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i + 1) + " for hasDupes() finished in " + time);
+        }
+        
+        // Testing function 2: hasDupesBinarySearch()
+        for (int i = 0; i < 10; i++) {
+            Timer timer = new Timer();
+            DupeChecker checker = new DupeChecker();
+            checker.hasDupesBinarySearch(animeList);
+            String time = timer.stop();
+            times[1][i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i + 1) + " for hasDupesBinarySearch() finished in " + time);
+        }
+        
+        // Testing function 3: listDupes()
+        for (int i = 0; i < 10; i++) {
+            Timer timer = new Timer();
+            DupeChecker checker = new DupeChecker();
+            checker.listDupes(animeList);
+            String time = timer.stop();
+            times[2][i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i + 1) + " for listDupes() finished in " + time);
+        }
+        
+        // Testing function 4: removeDupes()
+        for (int i = 0; i < 10; i++) {
+            Timer timer = new Timer();
+            DupeChecker checker = new DupeChecker();
+            checker.removeDupes(animeList);
+            String time = timer.stop();
+            times[3][i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i + 1) + " for removeDupes() finished in " + time);
+        }
+        
+        // Average results
+        double[] sums = new double[4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 10; j++) {
+                sums[i] += times[i][j];
+            }
+        }
+        
+        // Display results
+        System.out.println("Average exeuction time for hasDupes(): " + sums[0] + " milliseconds.");
+        System.out.println("Average exeuction time for hasDupesBinarySearch(): " + sums[1] + " milliseconds.");
+        System.out.println("Average exeuction time for listDupes(): " + sums[2] + " milliseconds.");
+        System.out.println("Average exeuction time for removeDupes(): " + sums[3] + " milliseconds.");
     }
      
     
