@@ -39,13 +39,4 @@ public class Character {
     public String toString(){
         return name;
     }
-    
-    // Checks if this voice actor matches the input one
-    public boolean hasVoiceActor(VoiceActor va){
-        if(va.equals(voiceActor))
-            return true;
-        else
-            return false;
-    }
-    
 }
