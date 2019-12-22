@@ -53,18 +53,20 @@ public class Main {
              tree.insert(animeList.getRecord(i));
          }
          
-         //String animeInput;
-         //Scanner sc = new Scanner(System.in);
+         // Get user input
          System.out.println("Type an anime title to begin searching.");
          String animeTitle = Quick.toTitleCase(Display.promptString("Enter anime title"));
          
+         // Perform search and get results
          boolean found = tree.search(new Anime(animeTitle));
          
+         // Show result to the user
          if(found)
              System.out.println("FOUND"); // CUSTOMIZE MESSAGE
          else
              System.out.println("NOT FOUND"); // CUSTOMIZE MESSAGE
          
+         // Back to main menu
          Display.enterKeyToContinue();
          showMainMenu();
      }
