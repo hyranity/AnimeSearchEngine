@@ -52,12 +52,12 @@ public class Main {
          for (int i = 0; i < animeList.size; i++) {
              tree.insert(animeList.getRecord(i));
          }
-         
-         
-         
+
          // Get user input
-         System.out.println("Type an anime title to begin searching.");
-         String animeTitle = Display.promptString("Enter anime title");
+         System.out.println("Type an anime title to begin searching. ");
+         String animeTitle = Display.promptString("Enter anime title (Case-sensitive entry)");
+         
+         Timer timer = new Timer(); // start timer
          
          // Perform search and get results
          boolean found = tree.search(new Anime(animeTitle));
@@ -66,6 +66,9 @@ public class Main {
              System.out.println("FOUND"); // CUSTOMIZE MESSAGE
          else
              System.out.println("NOT FOUND"); // CUSTOMIZE MESSAGE
+         
+         String time = timer.stop();    // stop timer
+         System.out.println("Time taken to complete searching: " + timer.stop());
          
          // Back to main menu
          Display.enterKeyToContinue();
