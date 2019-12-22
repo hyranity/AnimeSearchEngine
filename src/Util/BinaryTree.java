@@ -16,8 +16,8 @@ public class BinaryTree<E extends Comparable<E>> {
             return false;
     }
     
-    public E binaryTreeSearch(E e, Node current){
-        Node<E> node = new Node(e);
+    public E binaryTreeSearch(E animeTitle, Node current){
+        Node<E> node = new Node(animeTitle);
         // set the current as root
         if(current == null)
             current = root;
@@ -84,7 +84,7 @@ public class BinaryTree<E extends Comparable<E>> {
     }
     
     public class Node<E extends Comparable<E>> implements Comparable<Node <E>>{
-        private E data;
+        public E data;
         private Node<E> left;
         private Node<E> right;
         
