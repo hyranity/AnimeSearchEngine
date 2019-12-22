@@ -67,6 +67,7 @@ public class BinaryTree<E extends Comparable<E>> implements BinaryTreeInterface<
     }
     
     // Code reference : https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
+    @Override
     public Node add(Node<E> root, E data){
         
         if(root==null){
