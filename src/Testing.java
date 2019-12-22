@@ -59,7 +59,7 @@ public class Testing {
             times[0][i] = timer.getElapsedTimeInMillis();
             System.out.println("Round " + (i + 1) + " for hasDupes() finished in " + time);
         }
-        
+        System.out.println("\n");
         // Testing function 2: hasDupesBinarySearch()
         for (int i = 0; i < 10; i++) {
             Timer timer = new Timer();
@@ -69,7 +69,7 @@ public class Testing {
             times[1][i] = timer.getElapsedTimeInMillis();
             System.out.println("Round " + (i + 1) + " for hasDupesBinarySearch() finished in " + time);
         }
-        
+        System.out.println("\n");
         // Testing function 3: listDupes()
         for (int i = 0; i < 10; i++) {
             Timer timer = new Timer();
@@ -79,7 +79,7 @@ public class Testing {
             times[2][i] = timer.getElapsedTimeInMillis();
             System.out.println("Round " + (i + 1) + " for listDupes() finished in " + time);
         }
-        
+        System.out.println("\n");
         // Testing function 4: removeDupes()
         for (int i = 0; i < 10; i++) {
             Timer timer = new Timer();
