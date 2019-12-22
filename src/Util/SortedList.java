@@ -5,11 +5,12 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
   private T[] list; 
   private int length; //Length of list
-  private static final int DEFAULT_INITIAL_CAPACITY = 25;
+
   
   //Constructor
   public SortedList() {
-    this(DEFAULT_INITIAL_CAPACITY);
+    length = 0;
+    list = (T[]) new Comparable[10];
   }
 
   //Parameterized Constructor

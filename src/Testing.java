@@ -17,6 +17,8 @@ public class Testing {
         
         testFilter();
         testDupeChecker();
+        testSortedList();
+        testSelectionSort();
     }
     
     public static void testFilter(){
@@ -40,7 +42,7 @@ public class Testing {
             sum += times[i];
         }
         
-        System.out.println("Average execution time: " + sum/10 + " milliseconds.");
+        System.out.println("Average execution time: " + sum/10 + " milliseconds.\n\n");
     }
     
     public static void testDupeChecker() {
@@ -99,59 +101,66 @@ public class Testing {
         System.out.println("Average exeuction time for hasDupes(): " + sums[0] + " milliseconds.");
         System.out.println("Average exeuction time for hasDupesBinarySearch(): " + sums[1] + " milliseconds.");
         System.out.println("Average exeuction time for listDupes(): " + sums[2] + " milliseconds.");
-        System.out.println("Average exeuction time for removeDupes(): " + sums[3] + " milliseconds.");
+        System.out.println("Average exeuction time for removeDupes(): " + sums[3] + " milliseconds.\n\n");
     }
      
     
      
     //KELVIN'S SORT LIST ALGORITHM
-    public static void sortedList(){
-        // Start timer
-        Timer timer = new Timer();     
-        SortedListInterface<Anime> l1 = new SortedList<Anime>();
-        for (int i = 0; i < animeList.size; i++) {
-            l1.add(animeList.getRecord(i));
+    public static void testSortedList(){
+        System.out.println("TESTING: SORTING ALGORITHM\n");
+        double[] times = new double[10];
+        for (int i = 0; i < 10; i++) {
+            Timer timer = new Timer();     
+            SortedList sort = new SortedList();
+            for (int j = 0; j < animeList.size; j++) {
+                sort.add(animeList.getRecord(i));
+            }
+            String time = timer.stop();
+            times[i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i + 1) + " for sortedList() finished in " + time);
         }
-        // End timer
-        String stoppedTimer = timer.stop();
-        
-        System.out.println("Total Anime: " + l1.getLength());
-        System.out.println("\nAnime List by using List sort algorithm (A-Z):1 ");
-        System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
-        System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
-        System.out.println(l1);
-        System.out.println("\n\nTotal time to sort: " + timer.stop());
-        System.out.println();
-        
+        // calculate average
+        double sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += times[i];
+        }
+        System.out.println("Average execution time: " + sum/10 + " milliseconds.\n\n");
     }
     
     //KELVIN'S SELECTION SORT ALGORITHM
-    public static void selectionSort(){
-        // Start timer
-        Timer timer = new Timer();
-        SortedList<Anime> arr = new SortedList();
-        for (int i = 0; i < animeList.size; i++) {
-            arr.add(animeList.getRecord(i));
-        }
-        for (int i = 0; i < arr.getLength()-1; i++) {
-            int smallestNumber = i;
-            
-            for (int j = i+1; j < arr.getLength(); j++) {
-                if(arr.getEntry(smallestNumber).compareTo(arr.getEntry(j))>0)
-                    smallestNumber = j;
+    public static void testSelectionSort(){
+        System.out.println("TESTING: SELECTION SORT ALGORITHM\n");
+        double[] times = new double[10];
+        // Testing selection sort function
+        for (int k = 0; k < 10; k++) {
+            // Start timer
+            Timer timer = new Timer();
+            SortedList<Anime> arr = new SortedList();
+            for (int i = 0; i < animeList.size; i++) {
+                arr.add(animeList.getRecord(i));
             }
-           arr.swap(i, smallestNumber);
+            for (int i = 0; i < arr.getLength()-1; i++) {
+                int smallestNumber = i;
+
+                for (int j = i+1; j < arr.getLength(); j++) {
+                    if(arr.getEntry(smallestNumber).compareTo(arr.getEntry(j))>0)
+                        smallestNumber = j;
+                }
+               arr.swap(i, smallestNumber);
+            }
+            //end time
+            String time = timer.stop();
+            times[k] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (k + 1) + " for selectionSort finished in " + time);
         }
-        // End timer
-        String stoppedTimer = timer.stop();
-        System.out.println("Total Anime: " + arr.getLength());
-        System.out.println("\nAnime List by using Selection sort algorithm (A-Z): ");
-        System.out.printf("%-3s %-50s %-50s %-50s\n", "No","Name ", "Cast", "Genres");
-        System.out.printf("%-3s %-50s %-50s %-50s\n", "--", "------- ", "------- ", "------- ");
-        System.out.println(arr);
-        System.out.println("\n\nTotal time to sort: " + timer.stop());
+        // calculate average
+        double sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += times[i];
+        }
         
-        Display.enterKeyToContinue();
+        System.out.println("Average execution time: " + sum/10 + " milliseconds.\n\n");
     }
     
     // Sets data
