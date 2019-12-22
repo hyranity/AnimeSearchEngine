@@ -166,7 +166,26 @@ public class Main {
     }
     
     public static void checkForDupesBinarySearch() {
-        System.out.println("This function requires another module to be fully-constructed/operational first! (List sorting.)");
+        Timer timer = new Timer();
+        
+        SortedListInterface<Anime> tempList = new SortedList<Anime>();
+        for (int i = 0; i < animeList.size; i++) {
+            tempList.add(animeList.getRecord(i));
+        }
+        
+        AnimeList sortedList = new AnimeList();
+        for (int i = 0; i < tempList.getLength(); i++) {
+            sortedList.add(tempList.getEntry(i));
+        }
+        
+        DupeChecker<Anime> checker = new DupeChecker();
+        if (checker.hasDupesBinarySearch(sortedList)) {
+            System.out.println("The list contains duplicates.");
+        } else {
+            System.out.println("The list does not contain duplicates.");
+        }
+        
+        System.out.println("\n\nTotal time to execute: " + timer.stop());
         
         Display.enterKeyToContinue();
         showDupeMenu();
@@ -575,7 +594,8 @@ public class Main {
         vaList.add(new VoiceActor(quick.generateListId("VA", 5), "Risa Taneda", Quick.getDate(12, 7, 1988)));
 
     }
-    
+} 
+
     // UNUSED METHODS BUT MIGHT BE USED LATER
     /*
     public static void showSearch() {
@@ -625,4 +645,3 @@ public class Main {
                 break;
         }
     }*/
-}
