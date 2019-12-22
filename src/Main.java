@@ -217,7 +217,6 @@ public class Main {
      
     //KELVIN'S SORT LIST ALGORITHM
     public static void sortedList(){
-        int n = 10;
         // Start timer
         Timer timer = new Timer();
         SortedListInterface<Anime> l1 = new SortedList<Anime>();
@@ -247,13 +246,13 @@ public class Main {
             arr.add(animeList.getRecord(i));
         }
         for (int i = 0; i < arr.getLength()-1; i++) {
-            int smallestNumber = i;
+            int smallestItem = i;
             
             for (int j = i+1; j < arr.getLength(); j++) {
-                if(arr.getEntry(smallestNumber).compareTo(arr.getEntry(j))>0)
-                    smallestNumber = j;
+                if(arr.getEntry(smallestItem).compareTo(arr.getEntry(j))>0)
+                    smallestItem = j;
             }
-           arr.swap(i, smallestNumber);
+           arr.swap(i, smallestItem);
         }
         // End timer
         String stoppedTimer = timer.stop();

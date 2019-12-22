@@ -174,7 +174,7 @@ public class Testing {
             //end time
             String time = timer.stop();
             times[k] = timer.getElapsedTimeInMillis();
-            System.out.println("Round " + (k + 1) + " for selectionSort finished in " + time);
+            System.out.println("Round " + (k + 1) + " for selectionSort() finished in " + time);
         }
         // calculate average
         double sum = 0;
