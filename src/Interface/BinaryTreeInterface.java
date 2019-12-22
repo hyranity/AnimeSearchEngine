@@ -37,7 +37,7 @@ public interface BinaryTreeInterface<E extends Comparable<E>> {
         description: add new data entry into a node
         precondition: a node must be empty in order to be filled in with the new data
         postcondition: a node filled in with the new data entry
-        return: root
+        return: root/entire tree
     */
     
     BinaryTree<E>.Node<E> getRoot();
