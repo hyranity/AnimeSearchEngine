@@ -29,13 +29,16 @@ public class BinaryTree<E extends Comparable<E>> {
         
         // else, check should go left or not
         if(node.compareTo(current) < 0 && current.getLeft() != null){
+            System.out.print("Right since " + animeTitle); System.out.println(" < " + current.getData());
             return binaryTreeSearch(node.getData(), current.getLeft());
             
         }
         
         // else, check should go right or not 
-        else if (node.compareTo(current)>0 && current.getRight() != null)
+        else if (node.compareTo(current)>0 && current.getRight() != null){
+            System.out.print("Right since " + animeTitle); System.out.println(" > " + current.getData());
             return binaryTreeSearch(node.getData(), current.getRight());
+        }
         
         // else, no where to go; item is not found
         else
@@ -66,6 +69,7 @@ public class BinaryTree<E extends Comparable<E>> {
     
     // Code reference : https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
     public Node add(Node<E> root, E data){
+        
         if(root==null){
             root = new Node(data);
             return root;
@@ -73,6 +77,7 @@ public class BinaryTree<E extends Comparable<E>> {
         
         // check if data is before root
         if(data.compareTo(root.getData()) < 0){
+            
             root.setLeft(add(root.left, data));
         }
         else{
@@ -82,9 +87,19 @@ public class BinaryTree<E extends Comparable<E>> {
         
         return root;
     }
+
+    public Node<E> getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node<E> root) {
+        this.root = root;
+    }
+    
+    
     
     public class Node<E extends Comparable<E>> implements Comparable<Node <E>>{
-        public E data;
+        private E data;
         private Node<E> left;
         private Node<E> right;
         

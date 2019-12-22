@@ -53,13 +53,14 @@ public class Main {
              tree.insert(animeList.getRecord(i));
          }
          
+         
+         
          // Get user input
          System.out.println("Type an anime title to begin searching.");
-         String animeTitle = Quick.toTitleCase(Display.promptString("Enter anime title"));
+         String animeTitle = Display.promptString("Enter anime title");
          
          // Perform search and get results
          boolean found = tree.search(new Anime(animeTitle));
-         
          // Show result to the user
          if(found)
              System.out.println("FOUND"); // CUSTOMIZE MESSAGE
@@ -312,7 +313,6 @@ public class Main {
         codegeass.getGenres().add("Action");
         codegeass.getGenres().add("Military");
         codegeass.getGenres().add("Sci-Fi");
-        animeList.add(codegeass);
         animeList.add(codegeass);
 
         //Anime: conan
