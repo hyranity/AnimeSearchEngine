@@ -1,17 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
-/**
- *
- * @author mast3
- */
-public interface BinaryTreeInterface<E> {
+import Util.BinaryTree;
+import Util.BinaryTree.Node;
+
+public interface BinaryTreeInterface<E extends Comparable<E>> {
+    
+    boolean search (E e);
+    /*  
+        description: to search for an element on the list
+        return: it the element is not equal to null, then return true. (vice versa)
+    */
+    
+    E binaryTreeSearch(E animeTitle, Node current); 
+    /*
+        description: to search 
+    */
+    
+    void insert (E e);
+    
+    void inorderTraversal (Node node);
+
+    Node add(BinaryTree<E>.Node<E> root, E data);
+    
+    BinaryTree<E>.Node<E> getRoot();
+    
+    
+    /*
     E getRootData();
+        description: 
+    
+    
     boolean isEmpty();
+     
+    
+    
     void clear();
+     
+    
+    
     void insert(E e);
+      
+    
+    */
 }

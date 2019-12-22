@@ -17,6 +17,7 @@ public class Testing {
         
         testFilter();
         testDupeChecker();
+        testSearchAnime();
         testSortedList();
         testSelectionSort();
     }
@@ -104,7 +105,28 @@ public class Testing {
         System.out.println("Average exeuction time for removeDupes(): " + sums[3] + " milliseconds.\n\n");
     }
      
-    
+    public static void testSearchAnime(){
+
+         System.out.println("TESTING: BINARY SEARCH TREE ALGORITHM\n");
+         double [] times = new double [10];
+
+         BinaryTree<Anime> tree = new BinaryTree();
+
+         for (int i = 0; i < 10; i++) {
+             Timer timer = new Timer(); // start timer
+             tree.insert(animeList.getRecord(i));
+             
+            String time = timer.stop();
+            times[i] = timer.getElapsedTimeInMillis();
+            System.out.println("Round " + (i+1) + " finished in " + time);   
+         }
+
+         double sum = 0;
+         for (int i = 0; i < 10; i++) {
+            sum += times[i];
+        }
+         System.out.println("Average execution time: " + sum/10 + " milliseconds");
+     }
      
     //KELVIN'S SORT LIST ALGORITHM
     public static void testSortedList(){

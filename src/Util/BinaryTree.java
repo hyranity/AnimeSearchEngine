@@ -6,7 +6,8 @@
 package Util;
 import Model.*;
 
-public class BinaryTree<E extends Comparable<E>> {
+import Interface.BinaryTreeInterface;
+public class BinaryTree<E extends Comparable<E>> implements BinaryTreeInterface<E>{
     private Node<E> root;
     
     public boolean search(E e){
@@ -86,6 +87,7 @@ public class BinaryTree<E extends Comparable<E>> {
         return root;
     }
 
+    @Override
     public Node<E> getRoot() {
         return root;
     }
@@ -93,8 +95,7 @@ public class BinaryTree<E extends Comparable<E>> {
     public void setRoot(Node<E> root) {
         this.root = root;
     }
-    
-    
+
     
     public class Node<E extends Comparable<E>> implements Comparable<Node <E>>{
         private E data;
